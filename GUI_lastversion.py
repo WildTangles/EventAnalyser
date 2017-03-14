@@ -948,7 +948,7 @@ def run_analysis():
     del listbuttons[:]
     global listlabels
     del listlabels[:]
-    previousplots=glob.glob('Output/*.png')
+    previousplots=glob.glob('Output/*.gif')
     for plot in previousplots: 
         os.remove(plot)
 
