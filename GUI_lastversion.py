@@ -729,8 +729,8 @@ def abort():
     while pool == None:
         continue
     for process in pool:
-        process.terminate()
-        process.join()
+        queue.put(process.terminate())
+        queue.put(process.join())
         
 abortb = Button(frame1, text="ABORT", font=("Calibri",12), bg="Red", 
     activebackground="Black", fg= "White", activeforeground="White",
