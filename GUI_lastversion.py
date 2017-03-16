@@ -28,7 +28,10 @@ import ImageNames as imn
 
 window = tk.Tk()
 window.wm_title("Event Analyser") #GUI Name
-window.iconbitmap('@'+'icon.xbm') #Icon for the programme
+#window.iconbitmap('@'+'icon.xbm') #Icon for the programme
+img = PhotoImage(file='icon.gif')
+window.tk.call('wm', 'iconphoto', window._w, img)
+
 
 """Define a drop down menu in case we need it
 menu = Menu(window)
@@ -62,7 +65,7 @@ frame1.grid_columnconfigure(1, minsize=180, weight=1)
 frameOUT = Frame(window, width="812", height="700", bg="thistle4") #For plots
 frameOUT.pack(side=LEFT, fill=BOTH, expand=1)
 #These will make the plots appear centered
-frameOUT.grid_rowconfigure(0, minsize=83, weight=1)
+frameOUT.grid_rowconfigure(0, minsize=5, weight=1)
 frameOUT.grid_rowconfigure(6, minsize=83, weight=1)
 frameOUT.grid_columnconfigure(0, minsize=50, weight=1)
 frameOUT.grid_columnconfigure(6, minsize=50, weight=1) 
@@ -363,7 +366,7 @@ def extLepOpts():
         qinvmass.grid(row=7, sticky=E)
     if nlep_val.get() == 3:
         clearFrame()
-        OptionsLep.grid(row=1, column=1, rowspan=7)
+        OptionsLep.grid(row=1, column=1, rowspan=7,sticky=N)
         chooseLepchargecb.grid(row=0,sticky=W)
         qcharges.grid(row=0, sticky=E)
         chooseLepflavourcb.grid(row=3,sticky=W)
@@ -379,7 +382,7 @@ def extLepOpts():
         slider_maxLepTMass.grid(row=9)
     if nlep_val.get() == 4:
         clearFrame()
-        OptionsLep.grid(row=1, column=1, rowspan=7)
+        OptionsLep.grid(row=2, column=1, rowspan=7,sticky=N)
         chooseLepchargecb.grid(row=0, sticky=W)
         qcharges.grid(row=0, sticky=E)
         chooseLepflavourcb.grid(row=3, sticky=W)
@@ -723,57 +726,27 @@ def check_queue():
         if task == 1:
             update_bar()
         if task == 2:
-            for process in pool:
-                process.terminate()
-                process.join()
-            with queue.mutex:
-                queue.queue.clear()
-        if task == 3:
             plotting()
-        if task == 4:
+        if task == 3:
             progressbar.grid_forget()
-            global k
-            k = 0
-            progress_var.set(0)
+        if task == 4:
             abortb.grid_forget()
             drawingp.grid(row=20)
-            global runpressed
-            if not makeplots:
-                drawingp.grid_forget()
-                plotb.grid(row=20, sticky=E) 
-                run.grid(row=20)
-                runpressed = False
-                return
-    
-            global listphotos
-            del listphotos[:]
-            global listphotosbig
-            del listphotosbig[:]
-            global listcommands
-            del listcommands[:]
+        if task == 5:
+            drawingp.grid_forget()
+            plotb.grid(row=20, sticky=E) 
+            run.grid(row=20)
+        if task == 6:
             global listbuttons
             if len(listbuttons) > 0:
                 for i in range(0,len(listbuttons)):
                     listbuttons[i].grid_forget()
-            del listbuttons[:]
-            global listlabels
-            del listlabels[:]
-            previousplots=glob.glob('Output/*.gif')
-            for plot in previousplots: 
-                os.remove(plot)
-
-            if not histograms == []:
-                NewPlotResults.plot_results(histograms)
-
-            task = 3
-            queue.put(task)
+        if task == 7:
             drawingp.grid_forget()
-            plotb.grid(row=20, sticky=E) 
+            plotb.grid(row=20, sticky=E)
             run.grid(row=20)
-            runpressed = False
     window.after(10, check_queue)
-thread_queue = threading.Thread(target=check_queue)
-thread_queue.start()
+window.after(10, check_queue)
 
 
 #Button to start analysis
@@ -784,14 +757,16 @@ run.grid(row=20, column=0)
 #Abort button
 def abort():
     """aborts analysis"""
-   
     global makeplots #do not draw plots if abort is pressed
     makeplots = False
     global pool
     while pool == None:
         continue
-    task = 2
-    queue.put(task)
+    for process in pool:
+        process.terminate()
+        process.join()
+    with queue.mutex:
+        queue.queue.clear()
         
 abortb = Button(frame1, text="ABORT", font=("Calibri",12), bg="Red", 
     activebackground="Black", fg= "White", activeforeground="White",
@@ -835,6 +810,18 @@ def run_analysis():
 
     histograms.append("n_jets")
 
+    if st_jetcb.get() ==1: #number of jets
+        jetn_chk = CheckFileSuper.CheckNJets(minnjet_val.get(),
+            maxnjet_val.get())
+        selection.append(jetn_chk)
+ 
+        
+        if st_btagjetcb.get()==1: #btagging
+            btag_chk = CheckFileSuper.CheckBTag(btagmin_val.get(),
+                btagmax_val.get(),"btag")
+            selection.append(btag_chk)
+            histograms.append("btag")
+
     if minnjet_val.get()<=maxnjet_val.get() or maxnjet_val.get()!=0:
                
         histograms.append("jet_pt")
@@ -851,17 +838,6 @@ def run_analysis():
 
     if st_lepptcb.get()==1:
         AH.lep_num = leppt_val.get()
-    
-    if st_jetcb.get() ==1: #number of jets
-        jetn_chk = CheckFileSuper.CheckNJets(minnjet_val.get(),
-            maxnjet_val.get())
-        selection.append(jetn_chk)
- 
-        
-        if st_btagjetcb.get()==1: #btagging
-            btag_chk = CheckFileSuper.CheckBTag(btagmin_val.get(),
-                btagmin_val.get())
-            selection.append(btag_chk)
             
     if st_lepcb.get() != 0: #number of leptons
     
@@ -966,7 +942,6 @@ def run_analysis():
         selection.append(missE_chk) 
         
     processingDict = CustomConfiguration.Processes
-    print CustomConfiguration.Job["Fraction"]
         
     CustomConfiguration.Job["Batch"] = True
     jobs = [NewJob.NewJob(processName,CustomConfiguration.Job,
@@ -987,8 +962,43 @@ def run_analysis():
         task = 1
         queue.put(task)
    
+    task = 3
+    queue.put(task)
+
+    global k
+    k = 0
+    progress_var.set(0)
     task = 4
     queue.put(task)
+    global runpressed
+    if not makeplots:
+        task = 5
+        queue.put(task)
+        runpressed = False
+        return
+
+    global listphotos
+    del listphotos[:]
+    global listphotosbig
+    del listphotosbig[:]
+    global listcommands
+    del listcommands[:]
+    task = 6
+    queue.put(task)
+    global listlabels
+    del listlabels[:]
+    previousplots=glob.glob('Output/*.gif')
+    for plot in previousplots: 
+        os.remove(plot)
+
+    if not histograms == []:
+        NewPlotResults.plot_results(histograms)
+
+    task = 2
+    queue.put(task)
+    task = 7
+    queue.put(task) 
+    runpressed = False
     
 class JobPool(multiprocessing.Process):
     """Process object for running a job"""
@@ -1030,7 +1040,8 @@ run.config(command = run_a)
 #Function and button to plot results
 def plotting():
     """shows plots on interface"""
-    listbuttons = []
+    global listbuttons
+    del listbuttons[:]
     if histograms == []:
         plots = glob.glob('Output/*.gif')
     else:
@@ -1066,7 +1077,10 @@ def plotting():
                 listbuttons[i+j*4].grid(row=j+1, column=i+1)
     except IndexError:
 	pass
-    for i in range(0,4):
+    jetplots = 4
+    if plots[1] == 'Output/'+'b-tag Jet Number'+'.gif':
+        jetplots = 5
+    for i in range(0,jetplots):
         listbuttons[i].config(bg="lightsteelblue1")
     listbuttons[-1].config(bg="azure")
     if histograms == []:
