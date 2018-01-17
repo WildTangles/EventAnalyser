@@ -1022,7 +1022,33 @@ class run_thread(threading.Thread):
 runpressed = False
     
 def run_a():
-    """creates an analysis therad"""  
+    """creates an analysis therad"""
+
+    # print('st_jetcb: {}'.format(st_jetcb.get()))
+    # print('minnjet_val: {}'.format(minnjet_val.get()))
+    # print('maxnjet_val: {}'.format(maxnjet_val.get()))
+    # print('st_btagjetcb: {}'.format(st_btagjetcb.get()))
+    # print('btagmin_val: {}'.format(btagmin_val.get()))
+    # print('btagmax_val: {}'.format(btagmax_val.get()))
+    # print('st_lepcb: {}'.format(st_lepcb.get()))
+    # print('nlep_val: {}'.format(nlep_val.get()))
+    # print('st_lepptcb: {}'.format(st_lepptcb.get()))
+    # print('leppt_val: {}'.format(leppt_val.get()))
+    # print('LepTmass_val: {}'.format(LepTmass_val.get()))
+    # print('LepTmassMax_val: {}'.format(LepTmassMax_val.get()))
+    # print('st_lepchargecb: {}'.format(st_lepchargecb.get()))
+    # print('TwoLepcharge_val: {}'.format(TwoLepcharge_val.get()))
+    # print('st_lepflavourcb: {}'.format(st_lepflavourcb.get()))
+    # print('TwoLepflavour_val: {}'.format(TwoLepflavour_val.get()))
+    # print('st_InvMasscb: {}'.format(st_InvMasscb.get()))
+    # print('InvariantM_val: {}'.format(InvariantM_val.get()))
+    # print('Range_val: {}'.format(Range_val.get()))
+    # print('InvariantM2_val: {}'.format(InvariantM2_val.get()))
+    # print('minmissE_val: {}'.format(minmissE_val.get()))
+    # print('maxmissE_val: {}'.format(maxmissE_val.get()))
+    # print('st_missPcb: {}'.format(st_missPcb.get()))
+    # print('percentg_val: {}'.format(percentg_val.get()))
+
     abortb.grid(row=20)
     plotb.grid_forget()  
     run.grid_forget()
