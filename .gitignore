@@ -1,6 +1,9 @@
 Output/*
+!Output/.keep
 input/*
+!input/.keep
 .idea/*
 results/*
+!results/.keep
 *.pyc
 *.root
