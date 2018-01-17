@@ -1,5 +1,6 @@
 Output/*
 input/*
 .idea/*
-*.pyc
 results/*
+*.pyc
+*.root
