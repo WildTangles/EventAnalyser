@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, flash
+from flask import Flask, request, render_template
 from Analytics import run_a, get_status
 import glob
 import os
@@ -28,6 +28,9 @@ def analytics():
     else:
         return render_template('analytics.html', histograms=[])
 
+@app.route('/histogram', methods = ['GET', 'POST'])
+def histogram():    
+    return render_template('histogram.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

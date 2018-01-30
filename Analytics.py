@@ -7,7 +7,6 @@ import NewRunScript
 import NewPlotResults
 import NewAnalysisHelpers as AH
 import glob
-import os
 import CustomConfiguration
 import NewJob
 import multiprocessing
