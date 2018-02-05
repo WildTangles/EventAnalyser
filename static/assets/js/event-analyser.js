@@ -80,6 +80,12 @@ LEPNUMcheckbox.on('click', function(){
     chargeSamecheckbox.prop('checked', false);
     flavorDiffcheckbox.prop('checked', false);
     flavorSamecheckbox.prop('checked', false);    
+
+    minLEPMcheckboxgroup.hide();
+    minLEPMcheckbox.prop('checked', false);
+    minLEPMprompt.hide();
+    minLEPMprompt.find('input').val(' ');
+    minLEPMprompt.find('input').attr('required', false);
   }
 });
 
