@@ -5,14 +5,15 @@ import NewRunScript
 import NewPlotResults
 import NewAnalysisHelpers as AH
 import glob
+import os
 import CustomConfiguration
 import NewJob
 import multiprocessing
 import shutil
 
+pool= None
 latestThread = None
 histograms =[]
-pool= None
 analysisComplete = False
 
 def rootAnalysis(**kwargs):
@@ -181,10 +182,12 @@ def rootAnalysis(**kwargs):
     pool.reverse()
     for process in pool:
         process.join()
+        #update progress, max = 29
 
-    # previousplots=glob.glob('Output/*.gif')
-    # for plot in previousplots:
-    #     os.remove(plot)
+    for oldHistogram in glob.glob("static/histograms/*.gif"):
+        os.remove(oldHistogram)
+    for oldHistogram in glob.glob("Output/*.gif"):
+        os.remove(oldHistogram)
 
     if histograms:
         NewPlotResults.plot_results(histograms)

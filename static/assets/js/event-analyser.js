@@ -30,6 +30,8 @@ minLEPMcheckboxgroup = $('#min-charged-lepton-transverse-momentum-checkbox-group
 minLEPMcheckbox = $('#min-charged-lepton-transverse-momentum-checkbox'),
 minLEPMprompt = $('#number-charged-leptons-prompts-min-transverse-momentum-inner');
 
+headerText = $('#lead-text');
+
 GO = $('#GO');
 
 MTMprompt.hide();
@@ -301,10 +303,14 @@ GO.on('click', function(){
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
-        } else {
-          console.log('test')
-        }
+        } else {            
+            headerText.html("Loading!");                                        
+        }        
         form.classList.add('was-validated');
       }, false);
     });
+});
+
+$('#carouselExampleIndicators2').carousel({
+interval: 100
 });

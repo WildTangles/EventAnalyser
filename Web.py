@@ -1,15 +1,65 @@
 from flask import Flask, request, render_template
 from Analytics import startRootAnalysis, getRootStatus
+import firebase_admin
+from collections import OrderedDict
+from firebase_admin import credentials, firestore
 import glob
 import os
 import shutil
 import time
+import base64
+import pickle
 
 app = Flask(__name__)
+db = None
+localdb = None
+
+class pickleDB:
+
+    def __init__(self, pickleLoc):
+        self.pickleLoc = pickleLoc
+        self.cached = []
+
+    def loadDB(self):
+        try:
+            with open(self.pickleLoc, 'rb') as localPickle:
+                self.cached = pickle.load(localPickle)        
+        except (OSError, IOError) as e:
+            #new DB init
+            self.saveDB()
+
+    def saveDB(self):
+        with open(self.pickleLoc, 'wb') as localPickle:
+            pickle.dump(self.cached, localPickle)
+
+    def isCached(self, key):                
+        return key in self.cached
+
+    def addToCache(self, key):        
+        self.cached.append(key)        
+        self.saveDB()
+
 
 def dictSwapMinMax(dict, min, max):
     if dict[min] > dict[max]:
         dict[min], dict[max] = dict[max], dict[min]    
+
+def imgToStr(img):
+    with open(img, "rb") as imgFile:
+        return base64.b64encode(imgFile.read())
+
+def strToImg(data, img):
+    with open(img, "wb") as imgFile:
+        imgFile.write(data.decode('base64'))    
+
+def unicodify(data):
+    return unicode(data, "utf-8")    
+
+def genKey(oDict):
+    rkey = ''
+    for key, value in oDict.items():
+        rkey += '__{}-{}'.format(str(key), str(value))
+    return rkey  
 
 @app.route('/')
 def whatisthis():
@@ -37,7 +87,7 @@ def histogram():
     if request.method == 'POST':
 
         #### defaults ####
-        eventFeatures = {}
+        eventFeatures = OrderedDict({})
         eventFeatures['nlep_val'] = 0           #number of leptons        
         eventFeatures['LepTmass_val'] = 0       #lepton min transverse mass        
         eventFeatures['LepTmassMax_val'] = 200  #lepton max transverse mass
@@ -120,23 +170,38 @@ def histogram():
         
         dictSwapMinMax(eventFeatures, 'minmissE_val', 'maxmissE_val')        
         dictSwapMinMax(eventFeatures, 'btagmin_val', 'btagmax_val')
-        dictSwapMinMax(eventFeatures, 'minnjet_val', 'maxnjet_val')
-
-        for oldHistogram in glob.glob("static/histograms/*.gif"):
-            os.remove(oldHistogram)
-        for oldHistogram in glob.glob("Output/*.gif"):
-            os.remove(oldHistogram)
-
-        startRootAnalysis(eventFeatures)
-        print('started')
-        while not getRootStatus():            
-            pass
-        print('done')
+        dictSwapMinMax(eventFeatures, 'minnjet_val', 'maxnjet_val')            
         #### requested ####
 
-        return render_template('histogram.html')
-    else:
-        return render_template('histogram.html')
+        docKey = unicodify(genKey(eventFeatures))        
+        imgRef = db.collection(u'imgStore').document(docKey)
+        if localdb.isCached(docKey):
+            imgStore = imgRef.get()
+            for key, value in imgStore.to_dict().iteritems():
+                strToImg(value, 'static/histograms/{}'.format(key))        
+            return render_template('histogramPOST.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")],
+                placeholders=[placeholder+'?no-cache-token={}'.format(time.time()) for placeholder in glob.glob("static/placeholders/*.gif")])            
+        else:
+            startRootAnalysis(eventFeatures)
+            while not getRootStatus():
+               pass            
+            histDict = {}
+            for histogram in glob.glob("static/histograms/*.gif"):                                
+                histDict[unicodify(os.path.basename(histogram))] = imgToStr(histogram)                                                                
+            imgRef.set(histDict)
+            localdb.addToCache(docKey)
+            return render_template('histogramPOST.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")],
+                placeholders=[placeholder+'?no-cache-token={}'.format(time.time()) for placeholder in glob.glob("static/placeholders/*.gif")])
+            
+
+    else:        
+        return render_template('histogramGET.html', placeholders=[placeholder+'?no-cache-token={}'.format(time.time()) for placeholder in glob.glob("static/placeholders/*.gif")])
 
 if __name__ == '__main__':
+    cred = credentials.Certificate('../friedsquid-privatekey.json')
+    firebase_admin.initialize_app(cred)    
+    db = firestore.client()
+    localdb = pickleDB('local-db.pickle')
+    localdb.loadDB()
+
     app.run(debug=True)
