@@ -2,6 +2,8 @@ Output/*
 !Output/.keep
 Input/*
 !Input/.keep
+!Input/MC/.keep
+!Input/Data/.keep
 .idea/*
 results/*
 !results/.keep

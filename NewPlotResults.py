@@ -96,7 +96,7 @@ def DrawPlot(configuration, histlocation):
 
 #======================================================================
 
-def plot_results(histograms):
+def plot_results(samples, histograms):
     """
     Main function to be executed when starting the code.
     """
@@ -111,7 +111,64 @@ def plot_results(histograms):
     #args = parser.parse_args()
     
     #configModuleName = args.configfile.replace("/", ".").strip(".py")
-    configuration = PlotConf_CustomAnalysis.config
+
+## TODO:
+## XD
+## IF samples contains nonsense that does not match anything, it returns a garbage skeleton dict.    
+    if samples:
+        configuration = PlotConf_CustomAnalysis.config
+
+        keptStack = False
+        keptData = False
+
+        keptKeys = []        
+        for k, v in configuration["Paintables"]["Stack"]["Processes"].copy().iteritems():
+            keepKey = False            
+            for j in v["Contributions"]:
+                if j in samples:
+                    keepKey = True
+                    keptStack = True
+                    if k not in keptKeys:
+                        keptKeys.append(k)                
+            if not keepKey:
+                del configuration["Paintables"]["Stack"]["Processes"][k]        
+        configuration["Paintables"]["Stack"]["Order"] = keptKeys    
+        
+        cleanContrib = []
+        for k, v in configuration["Paintables"]["Stack"]["Processes"].copy().iteritems():
+            for j in v["Contributions"]:
+                if j not in samples:
+                    cleanContrib.append((k, j))
+        for i in cleanContrib:            
+            configuration["Paintables"]["Stack"]["Processes"][i[0]]["Contributions"].remove(i[1])
+
+        if not configuration["Paintables"]["Stack"]["Processes"].keys():
+            del configuration["Paintables"]["Stack"]
+
+        toRemove = []
+        for i in configuration["Paintables"]["data"]["Contributions"]:                            
+            if i in samples:
+                keptData = True
+            if i not in samples:
+                toRemove.append(i)
+        for i in toRemove:        
+            configuration["Paintables"]["data"]["Contributions"].remove(i)
+
+        if not configuration["Paintables"]["data"]["Contributions"]:
+            del configuration["Paintables"]["data"]
+
+        if (not keptStack) or (not keptData):                    
+            configuration["Depictions"]["Order"].remove("Data/MC")
+            del configuration["Depictions"]["Definitions"]["Data/MC"]
+
+        configuration["Depictions"]["Definitions"]["Main"]["Paintables"] = []
+        if keptStack:
+            configuration["Depictions"]["Definitions"]["Main"]["Paintables"].append("Stack")
+        if keptData:
+            configuration["Depictions"]["Definitions"]["Main"]["Paintables"].append("data")            
+
+    else:
+        configuration = PlotConf_CustomAnalysis.config
     
     for histogram in histograms:
         Database.UpdateDataBase(configuration, histogram)

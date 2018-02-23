@@ -49,6 +49,19 @@ Processes = {
   "WtaunuJetsBVeto"       : "Input/MC/mc_167747.WtaunuJetsBVeto.root",
   "WtaunuNoJetsBVeto"     : "Input/MC/mc_167748.WtaunuNoJetsBVeto.root",
 
+  # ZPrime Processes
+  "ZPrime400"             : "Input/MC/mc_110899.ZPrime400.root",
+  "ZPrime500"             : "Input/MC/mc_110901.ZPrime500.root",
+  "ZPrime750"             : "Input/MC/mc_110902.ZPrime750.root",
+  "ZPrime1000"            : "Input/MC/mc_110903.ZPrime1000.root",
+  "ZPrime1250"            : "Input/MC/mc_110904.ZPrime1250.root",
+  "ZPrime1500"            : "Input/MC/mc_110905.ZPrime1500.root",
+  "ZPrime1750"            : "Input/MC/mc_110906.ZPrime1750.root",
+  "ZPrime2000"            : "Input/MC/mc_110907.ZPrime2000.root",
+  "ZPrime2250"            : "Input/MC/mc_110908.ZPrime2250.root",
+  "ZPrime2500"            : "Input/MC/mc_110909.ZPrime2500.root",
+  "ZPrime3000"            : "Input/MC/mc_110910.ZPrime3000.root",
+
   # Data
   "data_Egamma"           : "Input/Data/DataEgamma*.root",
   "data_Muons"            : "Input/Data/DataMuons*.root",
