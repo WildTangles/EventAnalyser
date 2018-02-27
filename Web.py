@@ -99,10 +99,8 @@ def testpage():
         #### defaults ####
         eventFeatures['percentg_val'] = data_amount
         startRootAnalysis(eventFeatures)
-        while not getRootStatus():
-            print('waiitng')
-            pass    
-        print('attepting to plot')
+        while not getRootStatus():            
+            pass            
         return render_template('DataAnalysis.html', histograms=[placeholder+'?no-cache-token={}'.format(time.time()) for placeholder in glob.glob("static/histograms/*.gif")])        
     else:        
         return render_template('DataAnalysis.html', histograms=[placeholder+'?no-cache-token={}'.format(time.time()) for placeholder in glob.glob("static/placeholders/*.gif")])
