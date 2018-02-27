@@ -1,9 +1,6 @@
 Output/*
 !Output/.keep
-Input/*
-!Input/.keep
-!Input/MC/.keep
-!Input/Data/.keep
+
 .idea/*
 results/*
 !results/.keep
@@ -13,3 +10,6 @@ static/histograms/*
 *.root
 root/*
 venv/*
+static/*
+templates/*
+webdesign/*
