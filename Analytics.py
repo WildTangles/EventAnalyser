@@ -240,44 +240,19 @@ def getRootStatus():
     return analysisComplete
 
 if __name__ == '__main__':
-    # testParams = {
-    #     'st_jetcb': 0,
-    #     'minnjet_val': 0,
-    #     'maxnjet_val': 9,
-    #     'st_btagjetcb': 0,
-    #     'btagmin_val': 0,
-    #     'btagmax_val': 9,
-    #     'st_lepcb': 1,
-    #     'nlep_val': 1,
-    #     'st_lepptcb': 0,
-    #     'leppt_val': 25,
-    #     'LepTmass_val': 0,
-    #     'LepTmassMax_val': 200,
-    #     'st_lepchargecb': 0,
-    #     'TwoLepcharge_val': 1,
-    #     'st_lepflavourcb': 0,
-    #     'TwoLepflavour_val': 1,
-    #     'st_InvMasscb': 0,
-    #     'InvariantM_val': 0,
-    #     'Range_val': 0,
-    #     'InvariantM2_val': 0,
-    #     'minmissE_val': 0,
-    #     'maxmissE_val': 200,
-    #     'st_missPcb': 0,
-    #     'percentg_val': 1.0
-    # }
+
     testParams = {
-        'st_jetcb': 1,
-        'minnjet_val': 4,
+        'st_jetcb': 0,
+        'minnjet_val': 0,
         'maxnjet_val': 9,
-        'st_btagjetcb': 1,
-        'btagmin_val': 1,
+        'st_btagjetcb': 0,
+        'btagmin_val': 0,
         'btagmax_val': 9,
         'st_lepcb': 1,
         'nlep_val': 1,
         'st_lepptcb': 0,
         'leppt_val': 25,
-        'LepTmass_val': 30,
+        'LepTmass_val': 0,
         'LepTmassMax_val': 200,
         'st_lepchargecb': 0,
         'TwoLepcharge_val': 1,
@@ -287,15 +262,48 @@ if __name__ == '__main__':
         'InvariantM_val': 0,
         'Range_val': 0,
         'InvariantM2_val': 0,
-        'minmissE_val': 30,
+        'minmissE_val': 0,
         'maxmissE_val': 200,
         'st_missPcb': 0,
-        'percentg_val': 10.0
+        'percentg_val': 1.0
     }
+    # #testParams to somewhat isolate Z-Prime signal
+    # testParams = {
+    #     'st_jetcb': 1,
+    #     'minnjet_val': 4,
+    #     'maxnjet_val': 9,
+    #     'st_btagjetcb': 1,
+    #     'btagmin_val': 1,
+    #     'btagmax_val': 9,
+    #     'st_lepcb': 1,
+    #     'nlep_val': 1,
+    #     'st_lepptcb': 0,
+    #     'leppt_val': 25,
+    #     'LepTmass_val': 30,
+    #     'LepTmassMax_val': 200,
+    #     'st_lepchargecb': 0,
+    #     'TwoLepcharge_val': 1,
+    #     'st_lepflavourcb': 0,
+    #     'TwoLepflavour_val': 1,
+    #     'st_InvMasscb': 0,
+    #     'InvariantM_val': 0,
+    #     'Range_val': 0,
+    #     'InvariantM2_val': 0,
+    #     'minmissE_val': 30,
+    #     'maxmissE_val': 200,
+    #     'st_missPcb': 0,
+    #     'percentg_val': 10.0
+    # }
+
     #samples = [ "data_Egamma", "data_Muons" ]        
     #samples = [ "WW", "ZZ" ]
     #samples = ["data_Egamma", "data_Muons", "Zee", "Zmumu", "Ztautau"]
     #samples = ["data_Egamma", "data_Muons", "WenuJetsBVeto", "WenuWithB", "WenuNoJetsBVeto", "WmunuJetsBVeto", "WmunuWithB", "WmunuNoJetsBVeto", "WtaunuJetsBVeto", "WtaunuWithB", "WtaunuNoJetsBVeto"]
-    samples = []
-    startRootAnalysis(testParams, samples)
-    #startRootAnalysis(testParams)
+    #samples = ["data_Egamma", "data_Muons", "Zee"]
+    #samples = ["ZPrime1000", "ZPrime500", "ZPrime3000"]
+    #samples = ["ZPrime1000"]
+    #samples = ["data_Egamma", "data_Muons", "Zee", "ZPrime1000"]
+    samples = []   
+
+
+    startRootAnalysis(testParams, samples)    

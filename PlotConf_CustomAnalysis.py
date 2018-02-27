@@ -54,13 +54,9 @@ config = {
 "Paintables": {
     "Stack": {
         #Diboson added for ZPrime
-        "Order"     : ["Diboson", "WW","WZ","ZZ", "DrellYan", "W", "Z", "stop", "ttbar"],
+        "Order"     : ["WW","WZ","ZZ", "DrellYan", "W", "Z", "stop", "ttbar"],
         "Processes" : {
 
-            "Diboson": {
-                "Color":           "#FF3333",
-                "Contributions": ["WW", "WZ", "ZZ"]},
-#???? alreaady have single,, remove this
             "WW" : {
                 "Color"         : "#fa7921",
                 "Contributions" : ["WW"]},
@@ -130,7 +126,7 @@ config = {
 },
 }
 
-
+#pre Z prime changes below.
 # config = {
 # "Luminosity": 1000,
 # "InputDirectory": "results",

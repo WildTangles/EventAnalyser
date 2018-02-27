@@ -113,13 +113,15 @@ def plot_results(samples, histograms):
     #configModuleName = args.configfile.replace("/", ".").strip(".py")
 
 ## TODO:
-## XD
 ## IF samples contains nonsense that does not match anything, it returns a garbage skeleton dict.    
     if samples:
         configuration = PlotConf_CustomAnalysis.config
 
         keptStack = False
         keptData = False
+
+        Z = ["ZPrime1000", "ZPrime500", "ZPrime3000"]
+        keptZ = [False, False, False] 
 
         keptKeys = []        
         for k, v in configuration["Paintables"]["Stack"]["Processes"].copy().iteritems():
@@ -157,6 +159,20 @@ def plot_results(samples, histograms):
         if not configuration["Paintables"]["data"]["Contributions"]:
             del configuration["Paintables"]["data"]
 
+
+        for idx, Z_i in enumerate(Z,0):
+            toRemove = []
+            for i in configuration["Paintables"][Z_i]["Contributions"]:
+                if i in samples:
+                    keptZ[idx] = True
+                if i not in samples:
+                    toRemove.append(i)
+            for i in toRemove:
+                configuration["Paintables"][Z_i]["Contributions"].remove(i)
+
+            if not configuration["Paintables"][Z_i]["Contributions"]:
+                del configuration["Paintables"][Z_i]
+
         if (not keptStack) or (not keptData):                    
             configuration["Depictions"]["Order"].remove("Data/MC")
             del configuration["Depictions"]["Definitions"]["Data/MC"]
@@ -165,7 +181,10 @@ def plot_results(samples, histograms):
         if keptStack:
             configuration["Depictions"]["Definitions"]["Main"]["Paintables"].append("Stack")
         if keptData:
-            configuration["Depictions"]["Definitions"]["Main"]["Paintables"].append("data")            
+            configuration["Depictions"]["Definitions"]["Main"]["Paintables"].append("data")       
+        for idx, keptZ_i in enumerate(keptZ,0):
+            if keptZ_i:
+                configuration["Depictions"]["Definitions"]["Main"]["Paintables"].append(Z[idx])
 
     else:
         configuration = PlotConf_CustomAnalysis.config
