@@ -26,6 +26,12 @@ LEP1IMprompt = $('#number-charged-leptons-prompts-invariant-mass1');
 
 LEP2IMprompt = $('#number-charged-leptons-prompts-invariant-mass2');
 
+minLEPMcheckboxgroup = $('#min-charged-lepton-transverse-momentum-checkbox-group'),
+minLEPMcheckbox = $('#min-charged-lepton-transverse-momentum-checkbox'),
+minLEPMprompt = $('#number-charged-leptons-prompts-min-transverse-momentum-inner');
+
+headerText = $('#lead-text');
+
 GO = $('#GO');
 
 MTMprompt.hide();
@@ -40,6 +46,21 @@ LEPflavorprompt.hide();
 LEP1IMprompt.hide();
 LEP2IMprompt.hide();
 LEPNUMprompt.hide();
+
+minLEPMcheckboxgroup.hide();
+minLEPMprompt.hide();
+
+minLEPMcheckbox.on('click', function(){
+    if($(this).is(':checked')){
+        minLEPMprompt.show();
+        minLEPMprompt.find('input').val(' ');
+        minLEPMprompt.find('input').attr('required', true);
+    } else {
+        minLEPMprompt.hide();
+        minLEPMprompt.find('input').val(' ');
+        minLEPMprompt.find('input').attr('required', false);
+    }
+});
 
 LEPNUMcheckbox.on('click', function(){
   if($(this).is(':checked')){
@@ -61,6 +82,12 @@ LEPNUMcheckbox.on('click', function(){
     chargeSamecheckbox.prop('checked', false);
     flavorDiffcheckbox.prop('checked', false);
     flavorSamecheckbox.prop('checked', false);    
+
+    minLEPMcheckboxgroup.hide();
+    minLEPMcheckbox.prop('checked', false);
+    minLEPMprompt.hide();
+    minLEPMprompt.find('input').val(' ');
+    minLEPMprompt.find('input').attr('required', false);
   }
 });
 
@@ -81,6 +108,12 @@ $('.btn-group-toggle input[type=radio]').on('change', function() {
     LEP2IMprompt.hide();
     LEP2IMprompt.find('input').val(' ');
     LEP2IMprompt.find('input').attr('required', false);
+
+    minLEPMcheckboxgroup.hide();
+    minLEPMcheckbox.prop('checked', false);
+    minLEPMprompt.hide();
+    minLEPMprompt.find('input').val(' ');
+    minLEPMprompt.find('input').attr('required', false);
   } else if($('#number-charged-leptons-1').is(':checked')){        
     LEPTMprompt.show();
     LEPTMprompt.find('input').attr('required', true);
@@ -98,7 +131,13 @@ $('.btn-group-toggle input[type=radio]').on('change', function() {
     LEP1IMprompt.find('input').attr('required', false);
     LEP2IMprompt.hide();
     LEP2IMprompt.find('input').val(' ');   
-    LEP2IMprompt.find('input').attr('required', false);
+    LEP2IMprompt.find('input').attr('required', false);   
+
+    minLEPMcheckboxgroup.show();
+    minLEPMcheckbox.prop('checked', false);
+    minLEPMprompt.hide();
+    minLEPMprompt.find('input').val(' ');
+    minLEPMprompt.find('input').attr('required', false);
   } else if($('#number-charged-leptons-2').is(':checked')){
     LEPchargeprompt.show();
     LEPflavorprompt.show();
@@ -119,6 +158,12 @@ $('.btn-group-toggle input[type=radio]').on('change', function() {
     LEP2IMprompt.hide();
     LEP2IMprompt.find('input').val(' ');
     LEP2IMprompt.find('input').attr('required', false);
+
+    minLEPMcheckboxgroup.show();
+    minLEPMcheckbox.prop('checked', false);
+    minLEPMprompt.hide();
+    minLEPMprompt.find('input').val(' ');
+    minLEPMprompt.find('input').attr('required', false);
   } else if($('#number-charged-leptons-3').is(':checked')){
     LEPTMprompt.show();
     LEPTMprompt.find('input').attr('required', true);
@@ -140,6 +185,12 @@ $('.btn-group-toggle input[type=radio]').on('change', function() {
     LEP2IMprompt.hide();
     LEP2IMprompt.find('input').val(' ');
     LEP2IMprompt.find('input').attr('required', false);
+
+    minLEPMcheckboxgroup.show();
+    minLEPMcheckbox.prop('checked', false);
+    minLEPMprompt.hide();
+    minLEPMprompt.find('input').val(' ');
+    minLEPMprompt.find('input').attr('required', false);
   } else if($('#number-charged-leptons-4').is(':checked')){    
     LEPchargeprompt.show();
     LEPflavorprompt.show();
@@ -162,6 +213,12 @@ $('.btn-group-toggle input[type=radio]').on('change', function() {
     LEP1IMprompt.find('input').val(' ');
     //LEP2IMprompt.hide();
     LEP2IMprompt.find('input').val(' ');
+
+    minLEPMcheckboxgroup.show();
+    minLEPMcheckbox.prop('checked', false);
+    minLEPMprompt.hide();
+    minLEPMprompt.find('input').val(' ');
+    minLEPMprompt.find('input').attr('required', false);
   }
 });
 
@@ -236,12 +293,7 @@ bJETcheckbox.on('click', function(){
   }
 });
 
-
-// disabling form submissions if there are invalid fields
-(function() {
-  'use strict';
-
-  window.addEventListener('load', function() {
+GO.on('click', function(){
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.getElementsByClassName('needs-validation');
 
@@ -251,9 +303,14 @@ bJETcheckbox.on('click', function(){
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
-        }
+        } else {            
+            headerText.html("Loading!");                                        
+        }        
         form.classList.add('was-validated');
       }, false);
     });
-  }, false);
-})();
+});
+
+$('#carouselExampleIndicators2').carousel({
+interval: 100
+});

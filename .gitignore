@@ -1,9 +1,15 @@
 Output/*
 !Output/.keep
-input/*
-!input/.keep
+Input/*
+!Input/.keep
+!Input/MC/.keep
+!Input/Data/.keep
 .idea/*
 results/*
 !results/.keep
+static/histograms/*
+!static/histograms/.keep
 *.pyc
 *.root
+root/*
+venv/*

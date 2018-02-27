@@ -19,9 +19,9 @@ class CustomAnalysis(NewBaseAnalysis.Analysis):
 
     def initialize(self):
         """build a dictionary with the key being the histogram name 
-           and the value being the ROOT histogram object"""
+           and the value being the ROOT histogram object"""                
         for histogram in self.histograms:
-		self.histObjDic[histogram] = HM.returnHistogram(histogram)
+			self.histObjDic[histogram] = HM.returnHistogram(histogram)		
 
     def analyze(self):
          """checks an event satisfies the conditions"""
