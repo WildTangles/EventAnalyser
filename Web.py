@@ -65,6 +65,48 @@ def genKey(oDict):
 def whatisthis():
     return render_template('whatisthis.html')
 
+@app.route('/testpage', methods = ['GET', 'POST'])
+def testpage():    
+    if request.method == 'POST':
+        data_amount = float(request.form.get("testinputbox"))
+
+        #### defaults ####
+        eventFeatures = OrderedDict({})
+        eventFeatures['nlep_val'] = 0           #number of leptons        
+        eventFeatures['LepTmass_val'] = 0       #lepton min transverse mass        
+        eventFeatures['LepTmassMax_val'] = 200  #lepton max transverse mass
+        eventFeatures['InvariantM_val'] = 0     #lepton pair 1 invariant mass
+        eventFeatures['InvariantM2_val'] = 0    #lepton pair 2 invariant mass
+        eventFeatures['Range_val'] = 0          #lepton pair invariant mass uncertainty
+        eventFeatures['leppt_val'] = 25         #lepton min transverse momentum
+        eventFeatures['minnjet_val'] = 0        #min number of jets
+        eventFeatures['maxnjet_val'] = 9        #max number of jets
+        eventFeatures['btagmin_val'] = 0        #min b tag jets
+        eventFeatures['btagmax_val'] = 9        #max b tag jets
+        eventFeatures['minmissE_val'] = 0       #min missing transverse momentum
+        eventFeatures['maxmissE_val'] = 200     #max missing transverse momentum
+        eventFeatures['percentg_val'] = 0.5     #fraction of input data 
+        eventFeatures['TwoLepcharge_val'] = 1   #lepton same/opp charge
+        eventFeatures['TwoLepflavour_val'] = 1  #lepton same/diff flavour
+        eventFeatures['st_lepchargecb'] = 0     #state lepton charge feature selection
+        eventFeatures['st_lepflavourcb'] = 0    #state lepton flavour feature selection
+        eventFeatures['st_InvMasscb'] = 0       #state of invariant mass feature selection
+        eventFeatures['st_lepptcb'] = 0         #state of lepton min transverse momentum feature selection
+        eventFeatures['st_btagjetcb'] = 0       #state of b tag jets feature selection
+        eventFeatures['st_lepcb'] = 0           #state of charged leptons feature selections
+        eventFeatures['st_jetcb'] = 0           #state of jets feature seletion
+        eventFeatures['st_missPcb'] = 0         #state of missing transverse momentum feature selection 
+        #### defaults ####
+        eventFeatures['percentg_val'] = data_amount
+        startRootAnalysis(eventFeatures)
+        while not getRootStatus():
+            print('waiitng')
+            pass    
+        print('attepting to plot')
+        return render_template('DataAnalysis.html', histograms=[placeholder+'?no-cache-token={}'.format(time.time()) for placeholder in glob.glob("static/histograms/*.gif")])        
+    else:        
+        return render_template('DataAnalysis.html', histograms=[placeholder+'?no-cache-token={}'.format(time.time()) for placeholder in glob.glob("static/placeholders/*.gif")])
+
 @app.route('/analytics', methods = ['GET', 'POST'])
 def analytics():
     if request.method == 'POST':
