@@ -13,6 +13,3 @@ static/histograms/*
 *.root
 root/*
 venv/*
-static/*
-templates/*
-webdesign/*
