@@ -32,12 +32,15 @@ def unicodify(data):
 def genKey(oDict):
     rkey = ''
     for key, value in oDict.items():
-        rkey += '__{}-{}'.format(str(key), str(value))
+        rkey += '__{}-{}'.format(str(key), str(value))  
     return rkey  
 
 @app.route('/introData', methods = ['GET', 'POST'])
 def introData():
-        return render_template('introData.html')
+        if request.method == 'POST':
+            return render_template('introData.html', histograms=[placeholder+'?no-cache-token={}'.format(time.time()) for placeholder in glob.glob("static/placeholders/*.gif")])
+        else:
+            return render_template('introData.html', histograms=[placeholder+'?no-cache-token={}'.format(time.time()) for placeholder in glob.glob("static/placeholders/*.gif")])        
 
 @app.route('/demo', methods = ['GET', 'POST'])
 def demo():
@@ -129,6 +132,29 @@ def demo():
         dictSwapMinMax(eventFeatures, 'btagmin_val', 'btagmax_val')
         dictSwapMinMax(eventFeatures, 'minnjet_val', 'maxnjet_val')            
         #### requested ####
+
+        #### TMP SAMPLES MANUAL ####
+        samples = []
+        #example samples to provide
+        #samples = [ "data_Egamma", "data_Muons" ]        
+        #samples = [ "WW", "ZZ" ]
+        #samples = ["data_Egamma", "data_Muons", "Zee", "Zmumu", "Ztautau"]
+        #samples = ["data_Egamma", "data_Muons", "WenuJetsBVeto", "WenuWithB", "WenuNoJetsBVeto", "WmunuJetsBVeto", "WmunuWithB", "WmunuNoJetsBVeto", "WtaunuJetsBVeto", "WtaunuWithB", "WtaunuNoJetsBVeto"]
+        #samples = ["data_Egamma", "data_Muons", "Zee"]
+        #samples = ["ZPrime1000", "ZPrime500", "ZPrime3000"]
+        #samples = ["ZPrime1000"]
+        #samples = ["data_Egamma", "data_Muons", "Zee", "ZPrime1000"]
+
+        #gen samples key
+        samples.sort()
+        samplesKey = ''
+        for sample in samples:
+            samplesKey += '___{}'.format(sample)            
+        #
+
+        eventFeatures['samplesKey'] = samplesKey 
+        #### TMP SAMPLES MANUAL ####
+
 
         docKey = unicodify(genKey(eventFeatures))        
         imgRef = db.collection(u'imgStore').document(docKey)
