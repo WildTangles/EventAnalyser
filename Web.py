@@ -35,8 +35,12 @@ def genKey(oDict):
         rkey += '__{}-{}'.format(str(key), str(value))
     return rkey  
 
-@app.route('/', methods = ['GET', 'POST'])
-def histogram():
+@app.route('/introData', methods = ['GET', 'POST'])
+def introData():
+        return render_template('introData.html')
+
+@app.route('/demo', methods = ['GET', 'POST'])
+def demo():
     if request.method == 'POST':
 
         #### defaults ####
