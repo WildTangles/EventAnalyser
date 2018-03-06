@@ -14,27 +14,71 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
-    <nav class="navbar navbar-light navbar-expand-md">
-        <div class="container-fluid"><a class="navbar-brand" href="#">ATLASOPENDATA</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
-                id="navcol-1">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#"></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"></a></li>
-                </ul>
+<body><nav class="navbar navbar-light navbar-expand-md" style="background-color:#ffa3a3;">
+    <div class="container-fluid"><a href="#" class="navbar-brand">Atlas Analysis</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+            id="navcol-1">
+            <ul class="nav navbar-nav">
+                <li role="presentation" class="nav-item"><a href="Home.html" class="nav-link active"><button class="btn btn-secondary" type="button" style="background-color:transparent;">Home</button></a></li>
+            </ul>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" style="background-color:transparent;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Theory
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu" >
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" style="background-color:transparent; margin:0px 8px;color:rgb(0,0,0); width:150px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Basic
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButtona">
+                            <a class="dropdown-item" href="Theory1.html">Intro</a>
+                            <a class="dropdown-item" href="Theory2.html">Standard Model</a>
+                            <a class="dropdown-item" href="Theory3.html">Special Relativity</a>
+                            <a class="dropdown-item" href="Theory4.html">Interaction Forces and Feynman Diagrams</a>
+                            <a class="dropdown-item" href="Theory5.html">Conservation Laws</a>
+                            <a class="dropdown-item" href="Theory6.html">Experimental Ideas</a>
+                        </div>
+                    
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuA" style="background-color:transparent; margin:0px 8px; color:rgb(0,0,0); width:150px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Advanced
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuB">
+                            <a class="dropdown-item" href="Theory1.html">Intro</a>
+                            <a class="dropdown-item" href="Theory2.html">Standard Model</a>
+                            <a class="dropdown-item" href="Theory3.html">Special Relativity</a>
+                            <a class="dropdown-item" href="Theory4.html">Interaction Forces and Feynman Diagrams</a>
+                            <a class="dropdown-item" href="Theory5.html">Conservation Laws</a>
+                            <a class="dropdown-item" href="Theory6.html">Experimental Ideas</a>
+                        </div>
+            
             </div>
         </div>
-    </nav>
+            <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtona" style="background-color:transparent; margin:0px 8px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Data Analysis
+            </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtona">
+                    <a class="dropdown-item" href="DataAnalysistt.html">Start</a>
+                    <a class="dropdown-item" href="DataAnalysis2.html">Lepton Number</a>
+                    <a class="dropdown-item" href="DataAnalysis3.html">Minimum Number of Jets</a>
+                    <a class="dropdown-item" href="DataAnalysis4.html">Transverse Mass</a>
+                    <a class="dropdown-item" href="DataAnalysis5.html">Missing Transverse Momentum</a>
+                    <a class="dropdown-item" href="DataAnalysis6.html">Number of B-Jets</a>
+                </div>
+            </div>
+        </div>
+        <i class="icon ion-social-twitter" style="margin:10px;"></i>
+        <i class="icon ion-social-facebook" style="margin:10px;"></i>
+        <i class="icon ion-social-youtube" style="margin:10px;"></i>
+    </div>
+</nav>
     <div class="simple-slider">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image:url(&quot;assets/img/bluebck.jpg&quot;);height:650px;">
+                <div class="swiper-slide" style="background-image:url(&quot;assets/img/bluebck.jpg&quot;);height:725px;">
                     <h1 style="margin:200px 200px;color:rgb(186,247,255);">Welcome to AtlasOpenData</h1>
                     <p style="width:500px;margin:0px 200px;font-size:25px;color:rgb(216,235,255);">Atlas Analysis allows you to explore the world of particle physics by analysing data from CERN.&nbsp;</p>
                 </div>
-                <div class="swiper-slide" style="background-image:url(&quot;assets/img/fractal-art-.jpg&quot;);height:650px;">
+                <div class="swiper-slide" style="background-image:url(&quot;assets/img/fractal-art-.jpg&quot;);height:725px;">
                     <p style="margin:100px 100px;color:rgb(255,255,255);font-size:20px;">Click one of the buttons below to start leanring about particle physics &amp; ATLAS. These are based on your current level and understanding, so please select the level you are comftable with. Alternatively click the Analyse Data button
                         to start analysing some data.&nbsp;</p><p style="margin:100px 100px;height:250px;">
     <a class="btn btn-primary" role="button" href="Theory.html" style="height:140px;width:250px;background-image:url(&quot;beginnerbutton.jpg&quot;);font-size:30px;">Beginner</a>
