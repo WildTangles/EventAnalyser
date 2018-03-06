@@ -22,8 +22,8 @@ def imgToStr(img):
     with open(img, "rb") as imgFile:
         return base64.b64encode(imgFile.read())
 
-def strToImg(data, img):
-    with open(img, "wb") as imgFile:
+def strToImg(data, img):    
+    with open(img, "wb") as imgFile:        
         imgFile.write(data.decode('base64'))    
 
 def unicodify(data):
@@ -134,9 +134,9 @@ def demo():
         #### requested ####
 
         #### TMP SAMPLES MANUAL ####
-        samples = []
+        #samples = []
         #example samples to provide
-        #samples = [ "data_Egamma", "data_Muons" ]        
+        samples = [ "data_Egamma", "data_Muons" ]        
         #samples = [ "WW", "ZZ" ]
         #samples = ["data_Egamma", "data_Muons", "Zee", "Zmumu", "Ztautau"]
         #samples = ["data_Egamma", "data_Muons", "WenuJetsBVeto", "WenuWithB", "WenuNoJetsBVeto", "WmunuJetsBVeto", "WmunuWithB", "WmunuNoJetsBVeto", "WtaunuJetsBVeto", "WtaunuWithB", "WtaunuNoJetsBVeto"]
@@ -170,7 +170,7 @@ def demo():
                pass            
             histDict = {}
             for histogram in glob.glob("static/histograms/*.gif"):                                
-                histDict[unicodify(os.path.basename(histogram))] = imgToStr(histogram)                                                                
+                histDict[unicodify(os.path.basename(histogram))] = unicodify(imgToStr(histogram))                                                                
             imgRef.set(histDict)
             localdb.addToCache(docKey)
             return render_template('histogramPOST.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")],
