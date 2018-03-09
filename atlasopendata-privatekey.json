@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "atlasopendata-ff44f",
+  "private_key_id": "2293c38e9108ecdcbdb903559e9eae8fbe46b551",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC5ndDvNRTPItxk\nOnBCsc9HbXfO0SeuONX1VWyFTYo2AJ6V2fDDcEhwc4G2FmCu15IXR8sS4kMAOOxJ\nPAQXf1rEMqbKt0TKl77ZvRZbStyU2dL9olYr6ud7cJITw9YFK/JwsgumyH/RBfns\nCf9dIRqH0pnaGt5GjRmlMIHV3yo/XNlL/JN2SbRdrW4qhL4VkYjlAt3dLQafo3Zd\n51dWluoJKLg2Dx3b6yndLF+zGiVMs7Op1oqmEuxPevRtprp4L8CP0O9K20WohMDC\nj1jG/6pcU7+RBoT3Wq/uwStAJjo6swt/5luFQwOSVorQqPNwcd9UlzfPlfVGKOuV\nNC++8+0lAgMBAAECggEAIwbqQN3AN8dxFhPmD9vsjOLWN0fGaGzuyU1tvWkQwhiT\nVJ1sPwFPFjNh4Knv5EanWa/RXVanxKC5TCegcQu2JeyWB46Wk3GX0RCK6b7iic9i\nLr1F7CM3vBZV5pdv6YltxoD+zGItJpVtYHLRhvJChquCH4Ou+trRIlhZQ/IJT6vk\nNTV6h6ohFidU9z7VLGGYShfIbY3hmIQ/P1BudOR7nxB7sGh0fSTY5i1WsRcgDONG\nvXYLweezPOsQtuak6WDLvoAFcAvD+oX6FqVXbTZxjavBZTTM3uVaNP/FVQxGUtYI\npM0nEvMSGcCPKhv7JsXl7HEhyD40juvaDI8ueBNF+QKBgQDkIqFK6LCk8D1htWjI\ntUZPBC7OGX1JNjCaq38zopAWvqXoZZOE+Wqt7kDRgOoMxmZZrDG2dcslDjXeztMs\nZCjSFPcaiBe+JXo+rOupBuVsVeMWA0Xti8xh7V+FPReoT6bAG6v+rSDddD1k3eEg\nq6wyFPetvYa5SvoHsJ6QcDDxXQKBgQDQSbONiu3zQ8Kgz8II8YNdnNPygjDktR1v\nU6uZi7xWM3RSYtE5ZPdKN4pjUq9q5Odq8GUtcoFUzZpv/czWK4xS7MRV6n+CWgUj\nr4IESZKh1l5iDARps1PzIt56JcdW3/C6WJVXTL4u5eEdkmDgrcizNU2deAhF3i8/\ndeCCLs/GaQKBgQCV8dj3hldMIYcGqJiViugKWWJ2HjTFoPNzRZMWmhuAh5A+Xj0G\nonSmmzlJOiUbfm+ZMt994JBD68ImjuQngjF+Wz9K1fZdCP7/IOLHtvumKBFYz4/v\noPoVx1IIHe5ltuyPyeBTRPGb/KG5oUguFAfa5wMf07kwIoKR+VlO8B6LFQKBgQCs\nq4y4WGYu9wuQOOuIcn8OygZC0n8p+qNuORTW86qsY3eZHOaKCBOhaS3GbTOTEDRw\nyN13sadZ4CCZmvOG0Q9BZ5rUBtSyAWKlVMgaOcvfclFIQuIdplaAB3YcGNmKQZfV\nQ756Ytp/En9u/nxlhmwNdLDlTC6/jRPqLhRyl9ATkQKBgDN/P4gJpby2dIo1jZ83\nA0wf6p6suIPexWJXpaT5Lln2hqIUGkTQiq/CkC4GduYPjCr8jjOeue+Sj8yG4wuO\niW7bW7Lr58U3jaKt5dZjlR7yMYqYRDb1Kxlh4qLtSXHIQxJEWewl7DOSY99BGESS\nOcOiL1nZhPzzatjkuyqE8ziB\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-42vpr@atlasopendata-ff44f.iam.gserviceaccount.com",
+  "client_id": "117110747715973002896",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-42vpr%40atlasopendata-ff44f.iam.gserviceaccount.com"
+}
