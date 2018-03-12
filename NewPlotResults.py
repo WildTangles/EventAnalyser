@@ -1,5 +1,6 @@
 import argparse
 import sys
+import copy
 import os
 import glob
 import ROOT
@@ -115,7 +116,7 @@ def plot_results(samples, histograms):
 ## WARNING:
 ## IF samples contains nonsense that does not match anything, it returns a garbage skeleton dict.    
     if samples:
-        configuration = PlotConf_CustomAnalysis.config
+        configuration = copy.deepcopy(PlotConf_CustomAnalysis.config)
 
         keptStack = False
         keptData = False
@@ -124,7 +125,8 @@ def plot_results(samples, histograms):
         keptZ = [False, False, False] 
 
         keptKeys = []        
-        for k, v in configuration["Paintables"]["Stack"]["Processes"].copy().iteritems():
+        tmp = copy.deepcopy(configuration["Paintables"]["Stack"]["Processes"])
+        for k, v in tmp.iteritems():
             keepKey = False            
             for j in v["Contributions"]:
                 if j in samples:
@@ -137,7 +139,8 @@ def plot_results(samples, histograms):
         configuration["Paintables"]["Stack"]["Order"] = keptKeys    
         
         cleanContrib = []
-        for k, v in configuration["Paintables"]["Stack"]["Processes"].copy().iteritems():
+        tmp = copy.deepcopy(configuration["Paintables"]["Stack"]["Processes"])
+        for k, v in tmp.iteritems():
             for j in v["Contributions"]:
                 if j not in samples:
                     cleanContrib.append((k, j))
@@ -189,13 +192,17 @@ def plot_results(samples, histograms):
     else:
         configuration = PlotConf_CustomAnalysis.config
     
+    Database.config      = dict()
+    Database.histoptions = OrderedDict()
+    Database.rootFiles   = dict()
+
     for histogram in histograms:
         Database.UpdateDataBase(configuration, histogram)
         DrawPlot(configuration, histogram)
 	
-    Database.config      = dict()
-    Database.histoptions = OrderedDict()
-    Database.rootFiles   = dict()
+    # Database.config      = dict()
+    # Database.histoptions = OrderedDict()
+    # Database.rootFiles   = dict()
     
 #======================================================================   
 #if __name__ == "__main__":

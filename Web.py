@@ -91,6 +91,7 @@ def doStuff(samples, eventFeatures):
         for key, value in imgStore.to_dict().iteritems():
             strToImg(value, 'static/histograms/{}'.format(key))        
     else:
+        from Analytics import startRootAnalysis
         startRootAnalysis(eventFeatures, samples)
         while not getRootStatus():
            pass            
