@@ -112,7 +112,7 @@ def plot_results(samples, histograms):
     
     #configModuleName = args.configfile.replace("/", ".").strip(".py")
 
-## TODO:
+## WARNING:
 ## IF samples contains nonsense that does not match anything, it returns a garbage skeleton dict.    
     if samples:
         configuration = PlotConf_CustomAnalysis.config

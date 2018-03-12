@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TT Decay</title>
+<!--     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/Simple-Slider.css">
+    <link rel="stylesheet" href="assets/css/styles.css"> -->
+                <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <!-- switch this to local later -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Navigation-with-Button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Simple-Slider.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/form-validation.css') }}">    
+</head>
+
+<body style="background-image:url(&quot;../static/images/cloud1.jpg&quot;);"><nav class="navbar navbar-light navbar-expand-md" style="background-color:#ffa3a3;">
+    <div class="container-fluid"><a href="#" class="navbar-brand">ATLAS OpenData</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+            id="navcol-1">
+            <ul class="nav navbar-nav">
+                <li role="presentation" class="nav-item"><a href="index-1.html" class="nav-link active"><button class="btn btn-dark" type="button">Home</button></a></li>
+            </ul>
+        <div class="dropdown">
+            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Theory
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu" >
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" style="background-color:transparent; margin:0px 8px;color:rgb(0,0,0); width:150px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Basic
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButtona">
+                            <a class="dropdown-item" href="Theory1.html">Intro</a>
+                            <a class="dropdown-item" href="Theory2.html">Standard Model</a>
+                            <a class="dropdown-item" href="Theory3.html">Special Relativity</a>
+                            <a class="dropdown-item" href="Theory4.html">Interaction Forces and Feynman Diagrams</a>
+                            <a class="dropdown-item" href="Theory5.html">Conservation Laws</a>
+                            <a class="dropdown-item" href="Theory6.html">Experimental Ideas</a>
+                        </div>
+                    
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuA" style="background-color:transparent; margin:0px 8px; color:rgb(0,0,0); width:150px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Advanced
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuB">
+                            <a class="dropdown-item" href="Theory1.html">Intro</a>
+                            <a class="dropdown-item" href="Theory2.html">Standard Model</a>
+                            <a class="dropdown-item" href="Theory3.html">Special Relativity</a>
+                            <a class="dropdown-item" href="Theory4.html">Interaction Forces and Feynman Diagrams</a>
+                            <a class="dropdown-item" href="Theory5.html">Conservation Laws</a>
+                            <a class="dropdown-item" href="Theory6.html">Experimental Ideas</a>
+                        </div>
+            
+            </div>
+        </div>
+            <div class="dropdown">
+            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButtona" style="margin:0px 8px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                OpenData
+            </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtona">
+                    <a class="dropdown-item" href="DataAnalysistt1.html">Size of Dataset</a>
+                    <a class="dropdown-item" href="DataAnalysistt2.html">Leptons</a>
+                    <a class="dropdown-item" href="DataAnalysistt3.html">Jets</a>
+                    <a class="dropdown-item" href="DataAnalysistt4.html">Neutrinos</a>
+                    <a class="dropdown-item" href="DataAnalysistt5.html">Data Samples</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="background-color:#fff9ee;">
+                    <h1>tt¯ decay - data samples</h1>
+                    <p>The full dataset is composed of several real experimental data samples and simulated theoretical data samples. The experimental data samples (DataEGamma and DataMuons) contain the collision data at a center-of-mass energy of 8 TeV collected by the ATLAS detectors in 2012. They each contain a compound signal generated from a variety of processes. The theoretical data samples (e.g. Diboson WW, tt¯ -> Jets, etc.) contain data from Monte Carlo simulations of Standard Model processes and a selection of Beyond the Standard Model signals. They each contain the expected signal for the decay process that they're named after.</p>
+                    <p>Try re-running the analyses with only the tt¯ -> Jets and tt¯ -> I + X simulated data samples to get a clearer sense for the expected contribution of the tt¯ decay channel to the overall signal!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container" style="background-color:#fff9ee;">
+                   <div class="col-md-8 order-md-1">                  
+          <form class="needs-validation" id="event-features-form" method="POST" novalidate>
+
+            <div class="mb-3">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="number-charged-leptons" name="number-charged-leptons">
+                <label class="custom-control-label" for="number-charged-leptons">Charged Lepton Count</label>                
+              </div>               
+              <small class="form-text text-muted">Charged (electron-like) leptons in the event.</small>
+              <div class="input-group" id="number-charged-leptons-prompts-number">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-light active">
+                    <input type="radio" name="number-charged-leptons-choice" id="number-charged-leptons-0" value="0" autocomplete="off" checked> 0
+                  </label>
+                  <label class="btn btn-light">
+                    <input type="radio" name="number-charged-leptons-choice" id="number-charged-leptons-1" value="1" autocomplete="off"> 1
+                  </label>
+                  <label class="btn btn-light">
+                    <input type="radio" name="number-charged-leptons-choice" id="number-charged-leptons-2" value="2" autocomplete="off"> 2
+                  </label>
+                  <label class="btn btn-light">
+                    <input type="radio" name="number-charged-leptons-choice" id="number-charged-leptons-3" value="3" autocomplete="off"> 3
+                  </label>
+                  <label class="btn btn-light">
+                    <input type="radio" name="number-charged-leptons-choice" id="number-charged-leptons-4" value="4" autocomplete="off"> 4
+                  </label>
+                </div>                             
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="number-charged-leptons-prompts-transverse-mass">
+                <div class="row">
+                  <div class="col-sm">
+
+                    <div class="input-group" id="number-charged-leptons-prompts-transverse-mass-inner">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Min and Max Mass</span>
+                      </div>
+                      <input id="min-number-charged-leptons-prompts-transverse-mass" name="min-number-charged-leptons-prompts-transverse-mass" type="number" step= "0.1" min="0" max="200" class="form-control" placeholder="0.0-200.0">
+                      <div class="input-group-append">
+                        <span class="input-group-text">GeV</span>
+                      </div>
+                      <input id="max-number-charged-leptons-prompts-transverse-mass" name="max-number-charged-leptons-prompts-transverse-mass" type="number" step="0.1" min="0" max="200" class="form-control" placeholder="0.0-200.0">
+                      <div class="input-group-append">
+                        <span class="input-group-text">GeV</span>
+                      </div>
+                      <div class="invalid-feedback">
+                        Specify an appropriate minimum and maximum transverse mass for a lepton between 0.0 GeV and 200.0 GeV.
+                      </div>
+                    </div>
+                    <small class="form-text text-muted">Minimum and maximum transverse mass of a single lepton.</small>
+
+                  </div>
+                </div>    
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group" id="number-charged-leptons-prompts-charge">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="number-charged-leptons-prompts-charge-same" name="number-charged-leptons-prompts-charge-same">
+                      <label class="custom-control-label" for="number-charged-leptons-prompts-charge-same">Same Charge</label>                
+                    </div>            
+                    <small class="form-text text-muted">Same charge within a pair of leptons, but not necessarily with others.</small>
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="number-charged-leptons-prompts-charge-opp" name="number-charged-leptons-prompts-charge-opp">
+                      <label class="custom-control-label" for="number-charged-leptons-prompts-charge-opp">Opposite Charge</label>                
+                    </div>            
+                    <small class="form-text text-muted">Opposite charge within a pair of leptons, but not necessarily with others.</small>
+                  </div>
+                </div>    
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group" id="number-charged-leptons-prompts-flavor">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="number-charged-leptons-prompts-flavor-same" name="number-charged-leptons-prompts-flavor-same">
+                      <label class="custom-control-label" for="number-charged-leptons-prompts-flavor-same">Same Flavor</label>                
+                    </div>            
+                    <small class="form-text text-muted">Same flavor within a pair of leptons, but not necessarily with others.</small>
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="number-charged-leptons-prompts-flavor-diff" name="number-charged-leptons-prompts-flavor-diff">
+                      <label class="custom-control-label" for="number-charged-leptons-prompts-flavor-diff">Different Flavor</label>                
+                    </div>            
+                    <small class="form-text text-muted">Different flavor within a pair of leptons, but not necessarily with others.</small>
+                  </div>
+                </div>    
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group" id="number-charged-leptons-prompts-invariant-mass1">
+                <div class="row">
+                  <div class="col-sm">
+
+                      <div class="input-group" id="number-charged-leptons-prompts-invariant-mass1-inner">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="">Invariant Mass</span>
+                        </div>
+                        <input id="val-number-charged-leptons-prompts-invariant-mass1" name="val-number-charged-leptons-prompts-invariant-mass1" type="number" step= "0.1" min="0" max="200" class="form-control" placeholder="0.0-200.0">
+                        <div class="input-group-append">
+                          <span class="input-group-text">GeV ±</span>
+                        </div>
+                        <input id="unc-number-charged-leptons-prompts-invariant-mass1" name="unc-number-charged-leptons-prompts-invariant-mass1" type="number" step= "0.1" min="0" max="200" class="form-control" placeholder="0.0-200.0">
+                        <div class="input-group-append">
+                          <span class="input-group-text">GeV</span>
+                        </div>
+                        <div class="invalid-feedback">
+                          Specify an appropriate invariant mass for a pair of leptons between 0.0 GeV and 200.0 GeV.                          
+                        </div>
+                    </div>
+                    <small class="form-text text-muted">Invariant mass of a pair of leptons, subject to other event features.</small>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="mb-3">
+              <div class="input-group" id="number-charged-leptons-prompts-invariant-mass2">
+                <div class="row">
+                  <div class="col-sm">
+
+                      <div class="input-group" id="number-charged-leptons-prompts-invariant-mass2-inner">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="">Invariant Mass</span>
+                        </div>
+                        <input id="val-number-charged-leptons-prompts-invariant-mass2" name="val-number-charged-leptons-prompts-invariant-mass2" type="number" step= "0.1" min="0" max="200" class="form-control" placeholder="0.0-200.0">
+                        <div class="input-group-append">
+                          <span class="input-group-text">GeV</span>
+                        </div>
+                        <div class="invalid-feedback">
+                          Specify an appropriate invariant mass for a pair of leptons between 0.0 GeV and 200.0 GeV.                          
+                        </div>
+                    </div>
+                    <small class="form-text text-muted">Invariant mass of the other pair of leptons, same uncertainty as above.</small>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group" id="number-charged-leptons-prompts-min-transverse-momentum">
+                <div class="row">
+                  <div class="col-sm">
+
+                      <div class="custom-control custom-checkbox" id="min-charged-lepton-transverse-momentum-checkbox-group">
+                        <input type="checkbox" class="custom-control-input" id="min-charged-lepton-transverse-momentum-checkbox" name="min-charged-lepton-transverse-momentum-checkbox">
+                        <label class="custom-control-label" for="min-charged-lepton-transverse-momentum-checkbox">Minimum Transverse Momentum</label>
+                        <small class="form-text text-muted">Minimum transverse momentum of the charged leptons.</small>
+                      </div>
+
+                      <div class="input-group" id="number-charged-leptons-prompts-min-transverse-momentum-inner">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="">Min Momentum</span>                          
+                        </div>
+                        <input id="min-charged-lepton-transverse-momentum" name="min-charged-lepton-transverse-momentum" type="number" step="0.1" min="0" max="100" class="form-control" placeholder="0.0-100.0">
+                        <div class="input-group-append">
+                          <span class="input-group-text">GeV</span>
+                        </div>
+                        <div class="invalid-feedback">
+                          Specify an appropriate minimum transverse momentum for the charged leptons between 0.0 GeV and and 100.0 GeV.
+                        </div>
+                      </div>                                            
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr class="mb-4">
+
+            <div class="mb-3">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="number-jets-checkbox" name="number-jets-checkbox">
+              <label class="custom-control-label" for="number-jets-checkbox">Jet Count</label>
+            </div>
+            <small class="form-text text-muted">Jets are produced from the hadronization of quarks. Thus, jet count is a proxy for original quark count.</small>
+            <div class="input-group" id="number-jets-prompts">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Min and Max Count</span>
+              </div>
+              <input id="min-number-jets-prompt" name="min-number-jets-prompt" type="number" step="1" min="0" max="9" class="form-control" placeholder="0-9">
+              <input id="max-number-jets-prompt" name="max-number-jets-prompt" type="number" step="1" min="0" max="9" class="form-control" placeholder="0-9">              
+              <div class="invalid-feedback">
+                Specify minimum and maximum jet counts between 0 and 9.
+              </div>
+            </div> 
+            </div>
+
+            <div class="mb-3">
+            <div class="custom-control custom-checkbox" id="number-b-jets-checkbox-group">
+                <input type="checkbox" class="custom-control-input" id="number-b-jets-checkbox" name="number-b-jets-checkbox">
+                <label class="custom-control-label" for="number-b-jets-checkbox">B-Tagged Jet Count</label>
+            </div>
+            <small class="form-text text-muted" id="number-b-jets-checkbox-help">B-Tagged jets originate from bottom quarks.</small>
+            <div class="input-group" id="number-b-jets-prompts">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Min and Max Count</span>
+              </div>
+              <input id="min-number-b-jets-prompt" name="min-number-b-jets-prompt" type="number" step="1" min="0" max="9" class="form-control" placeholder="0-9">
+              <input id="max-number-b-jets-prompt" name="max-number-b-jets-prompt" type="number" step="1" min="0" max="9" class="form-control" placeholder="0-9">
+              <div class="invalid-feedback">
+                Specify minimum and maximum b-jet counts between 0 and 9.
+              </div>
+            </div>
+            </div>
+
+            <hr class="mb-4">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="missing-transverse-momentum-checkbox" name="missing-transverse-momentum-checkbox">
+              <label class="custom-control-label" for="missing-transverse-momentum-checkbox">Missing Transverse Momentum</label>              
+            </div>
+            <small class="form-text text-muted">Neutral leptons (neutrinos) aren't detected in the ATLAS experiment. Instead, look for events with missing momentum.</small>
+            <div class="input-group" id="missing-transverse-momentum-prompts">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Min and Max Missing</span>
+              </div>
+              <input id="min-missing-transverse-momentum-prompt" name="min-missing-transverse-momentum-prompt" type="number" step= "0.1" min="0" max="200" class="form-control" placeholder="0.0-200.0">
+              <div class="input-group-append">
+                <span class="input-group-text">GeV</span>
+              </div>
+              <input id="max-missing-transverse-momentum-prompt" name="max-missing-transverse-momentum-prompt" type="number" step="0.1" min="0" max="200" class="form-control" placeholder="0.0-200.0">
+              <div class="input-group-append">
+                <span class="input-group-text">GeV</span>
+              </div>
+              <div class="invalid-feedback">
+                Specify an appropriate minimum and maximum missing transverse momentum between 0.0 GeV and 200.0 GeV.
+              </div>
+            </div>
+                 
+            <hr class="mb-4">
+            <div class="mb-3">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="data-samples-checkbox" name="data-samples-checkbox">
+                    <label class="custom-control-label" for="data-samples-checkbox">Data Samples</label>
+                </div>            
+                <small class="form-text text-muted">Specify experimental and simulated data samples to include.</small>
+            </div>
+            <div class="mb-3">
+                <div class="custom-control custom-checkbox" id="data-samples-checkbox-experimental-grp">
+                    <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-experimental" name="data-samples-checkbox-experimental">
+                    <label class="custom-control-label" for="data-samples-checkbox-experimental">Experimental Samples</label>
+                </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-experimental-options">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-experimental-options-EGamma" name="data-samples-checkbox-experimental-options-EGamma">
+                      <label class="custom-control-label" for="data-samples-checkbox-experimental-options-EGamma">EGamma Sample</label>                
+                    </div>    
+                    <small class="form-test text-muted">Electron Gamma collisions at 8 TeV.</small>                            
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-experimental-options-Muons" name="data-samples-checkbox-experimental-options-EGamma">
+                      <label class="custom-control-label" for="data-samples-checkbox-experimental-options-Muons">Muons Sample</label>                
+                    </div>                                
+                    <small class="form-test text-muted">Muon spectrometer at 8 Tev.</small>
+                  </div>
+                </div>    
+              </div>
+            </div>
+
+
+            <div class="mb-3">
+                <div class="custom-control custom-checkbox" id="data-samples-checkbox-simulated-grp">
+                    <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated" name="data-samples-checkbox-simulated">
+                    <label class="custom-control-label" for="data-samples-checkbox-simulated">Simulated Samples</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="custom-control custom-checkbox" id="data-samples-checkbox-simulated-SM-grp">
+                    <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM" name="data-samples-checkbox-simulated-SM">
+                    <label class="custom-control-label" for="data-samples-checkbox-simulated-SM">Standard Model Processes</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="custom-control custom-checkbox" id="data-samples-checkbox-simulated-SM-Diboson-grp">
+                    <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-Diboson" name="data-samples-checkbox-simulated-SM-Diboson">
+                    <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-Diboson">Diboson Processes</label>
+                </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-SM-Diboson-options">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-Diboson-WW" name="data-samples-checkbox-simulated-SM-Diboson-WW">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-Diboson-WW">WW Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Monte Carlo WW Decay.</small>         
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-Diboson-ZZ" name="data-samples-checkbox-simulated-SM-Diboson-ZZ">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-Diboson-ZZ">ZZ Sample</label>                
+                    </div>
+                    <small class="form-test text-muted">Monte Carlo ZZ Decay.</small>                                                    
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-Diboson-WZ" name="data-samples-checkbox-simulated-SM-Diboson-WZ">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-Diboson-WZ">WZ Sample</label>                
+                    </div>                                                    
+                    <small class="form-test text-muted">Monte Carlo WZ Decay.</small>                                                    
+                  </div>
+                </div>    
+              </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="custom-control custom-checkbox" id="data-samples-checkbox-simulated-SM-STQP-grp">
+                    <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-STQP" name="data-samples-checkbox-simulated-SM-STQP">
+                    <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-STQP">Single Top Quark Processes</label>
+                </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-SM-STQP1">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-STQP-TT" name="data-samples-checkbox-simulated-SM-STQP-TT">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-STQP-TT">t-channel top Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Single top t-channel top.</small>         
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-STQP-TAT" name="data-samples-checkbox-simulated-SM-STQP-TAT">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-STQP-TAT">t-channel antitop Sample</label>                
+                    </div>
+                    <small class="form-test text-muted">Single top t-channel antitop.</small>                                                    
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-STQP-S" name="data-samples-checkbox-simulated-SM-STQP-S">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-STQP-S">s-channel Sample</label>                
+                    </div>                                                    
+                    <small class="form-test text-muted">Single top s-channel.</small>                                                    
+                  </div>
+                </div>    
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-SM-STQP2">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-STQP-WT" name="data-samples-checkbox-simulated-SM-STQP-WT">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-STQP-WT">Wt-channel Sample</label>                
+                    </div>                                                    
+                    <small class="form-test text-muted">Single top Wt-channel.</small>                                                    
+                  </div>
+                </div>    
+              </div>
+            </div>
+
+
+
+
+            <div class="mb-3">
+                <div class="custom-control custom-checkbox" id="data-samples-checkbox-simulated-SM-ZP-grp">
+                    <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-ZP" name="data-samples-checkbox-simulated-SM-ZP">
+                    <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-ZP">Z + Jet Processes</label>
+                </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-SM-ZP1">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-ZP-ZEE" name="data-samples-checkbox-simulated-SM-ZP-ZEE">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-ZP-ZEE">Zee + Jets Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Zee + Jets.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-ZP-ZMM" name="data-samples-checkbox-simulated-SM-ZP-ZMM">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-ZP-ZMM">Zμμ + Jets Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Zμμ + Jets.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-ZP-ZTT" name="data-samples-checkbox-simulated-SM-ZP-ZTT">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-ZP-ZTT">Zττ + Jets Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Zττ + Jets.</small>     
+                  </div>
+                </div>    
+              </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="custom-control custom-checkbox" id="data-samples-checkbox-simulated-SM-DY-grp">
+                    <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-DY" name="data-samples-checkbox-simulated-SM-DY">
+                    <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-DY">Drell-Yan Processes</label>
+                </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-SM-DY1">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-DY-EE0815" name="data-samples-checkbox-simulated-SM-DY-EE0815">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-DY-EE0815">ee with Mee[08-15] GeV Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Drell-Yan ee with Mee[08-15] GeV.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-DY-EE1540" name="data-samples-checkbox-simulated-SM-DY-EE1540">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-DY-EE1540">ee with Mee[15-40] GeV Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Drell-Yan ee with Mee[15-40] GeV.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-DY-MM0815" name="data-samples-checkbox-simulated-SM-DY-MM0815">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-DY-MM0815">μμ with Mμμ[08-15] GeV Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Drell-Yan μμ with Mμμ[08-15] GeV.</small>     
+                  </div>
+                </div>    
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-SM-DY2">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-DY-MM1540" name="data-samples-checkbox-simulated-SM-DY-MM1540">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-DY-MM1540">μμ with Mee[15-40] GeV Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Drell-Yan μμ with Mee[15-40] GeV.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-DY-TT0815" name="data-samples-checkbox-simulated-SM-DY-TT0815">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-DY-TT0815">ττ with Mττ[08-15] GeV Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Drell-Yan ττ with Mττ[08-15] GeV.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-DY-TT1540" name="data-samples-checkbox-simulated-SM-DY-TT1540">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-DY-TT1540">ττ with Mττ[15-40] GeV Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Drell-Yan ττ with Mττ[15-40] GeV.</small>     
+                  </div>
+                </div>    
+              </div>
+            </div>
+
+
+            <div class="mb-3">
+                <div class="custom-control custom-checkbox" id="data-samples-checkbox-simulated-SM-WP-grp">
+                    <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-WP" name="data-samples-checkbox-simulated-SM-WP">
+                    <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-WP">W + Jet Processes</label>
+                </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-SM-WP1">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-WP-EVB" name="data-samples-checkbox-simulated-SM-WP-EVB">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-WP-EVB">Weν + Jets with b Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Weν + Jets with b.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-WP-EVBV" name="data-samples-checkbox-simulated-SM-WP-EVBV">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-WP-EVBV">Weν + Jets with b veto Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Weν + Jets with b veto.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-WP-EVNBV" name="data-samples-checkbox-simulated-SM-WP-EVNBV">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-WP-EVNBV">Weν no Jets with b veto Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Weν no Jets with b veto.</small>     
+                  </div>
+                </div>    
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-SM-WP2">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-WP-MVB" name="data-samples-checkbox-simulated-SM-WP-MVB">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-WP-MVB">Wμν + Jets with b Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Wμν + Jets with b.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-WP-MVBV" name="data-samples-checkbox-simulated-SM-WP-MVBV">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-WP-MVBV">Wμν + Jets with b veto Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Wμν + Jets with b veto.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-WP-MVNBV" name="data-samples-checkbox-simulated-SM-WP-MVNBV">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-WP-MVNBV">Wμν no Jets with b veto Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Wμν no Jets with b veto.</small>     
+                  </div>
+                </div>    
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-SM-WP3">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-WP-TVB" name="data-samples-checkbox-simulated-SM-WP-TVB">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-WP-TVB">Wτν + Jets with b Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Wτν + Jets with b.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-WP-TVBV" name="data-samples-checkbox-simulated-SM-WP-TVBV">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-WP-TVBV">Wτν + Jets with b veto Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Wτν + Jets with b veto.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-SM-WP-TVNBV" name="data-samples-checkbox-simulated-SM-WP-TVNBV">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-SM-WP-TVNBV">Wτν no Jets with b veto Sample</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Wτν no Jets with b veto.</small>     
+                  </div>
+                </div>    
+              </div>
+            </div>
+
+
+            <div class="mb-3">
+                <div class="custom-control custom-checkbox" id="data-samples-checkbox-simulated-BSM-grp">
+                    <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM" name="data-samples-checkbox-simulated-BSM">
+                    <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM">Beyond Standard Model Processes</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="custom-control custom-checkbox" id="data-samples-checkbox-simulated-BSM-ZP-grp">
+                    <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM-ZP" name="data-samples-checkbox-simulated-BSM-ZP">
+                    <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM-ZP">Z' Processes</label>
+                </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-BSM-ZP1">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM-ZP-400" name="data-samples-checkbox-simulated-BSM-ZP-400">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM-ZP-400">MZ' = 400 GeV</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Z' → tt with MZ' = 400 GeV.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM-ZP-500" name="data-samples-checkbox-simulated-BSM-ZP-500">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM-ZP-500">MZ' = 500 GeV</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Z' → tt with MZ' = 500 GeV.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM-ZP-750" name="data-samples-checkbox-simulated-BSM-ZP-750">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM-ZP-750">MZ' = 750 GeV</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Z' → tt with MZ' = 750 GeV.</small>     
+                  </div>
+                </div>    
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-BSM-ZP2">
+                <div class="row">
+                                      <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM-ZP-1000" name="data-samples-checkbox-simulated-BSM-ZP-1000">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM-ZP-1000">MZ' = 1000 GeV</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Z' → tt with MZ' = 1000 GeV.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM-ZP-1250" name="data-samples-checkbox-simulated-BSM-ZP-1250">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM-ZP-1250">MZ' = 1250 GeV</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Z' → tt with MZ' = 1250 GeV.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM-ZP-1500" name="data-samples-checkbox-simulated-BSM-ZP-1500">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM-ZP-1500">MZ' = 1500 GeV</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Z' → tt with MZ' = 1500 GeV.</small>     
+                  </div>
+                </div>    
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-BSM-ZP3">
+                <div class="row">
+                                      <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM-ZP-1750" name="data-samples-checkbox-simulated-BSM-ZP-1750">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM-ZP-1750">MZ' = 1750 GeV</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Z' → tt with MZ' = 1750 GeV.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM-ZP-2000" name="data-samples-checkbox-simulated-BSM-ZP-2000">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM-ZP-2000">MZ' = 2000 GeV</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Z' → tt with MZ' = 2000 GeV.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM-ZP-2250" name="data-samples-checkbox-simulated-BSM-ZP-2250">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM-ZP-2250">MZ' = 2250 GeV</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Z' → tt with MZ' = 2250 GeV.</small>     
+                  </div>
+                </div>    
+              </div>
+            </div>
+                        <div class="mb-3">
+              <div class="input-group" id="data-samples-checkbox-simulated-BSM-ZP4">
+                <div class="row">
+                              <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM-ZP-2500" name="data-samples-checkbox-simulated-BSM-ZP-2500">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM-ZP-2500">MZ' = 2500 GeV</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Z' → tt with MZ' = 2500 GeV.</small>     
+                  </div>
+                  <div class="col-sm">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="data-samples-checkbox-simulated-BSM-ZP-3000" name="data-samples-checkbox-simulated-BSM-ZP-3000">
+                      <label class="custom-control-label" for="data-samples-checkbox-simulated-BSM-ZP-3000">MZ' = 3000 GeV</label>                
+                    </div>                                            
+                    <small class="form-test text-muted">Z' → tt with MZ' = 3000 GeV.</small>     
+                  </div>
+                </div>    
+              </div>
+            </div>
+
+
+            <hr class="mb-4">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="data-percent">Fraction of Dataset (%)</label>
+                <div class="input-group mb-3">
+                  <input type="number" step= "0.1" min="0" max="100" class="form-control" id="data-percent" name="data-percent" placeholder="0.0-100.0" required>
+                  <div class="input-group-append">                    
+                    <button type="submit" class="btn btn-primary" id="GO">GO!</button>                    
+                  </div>                
+                  <div class="invalid-feedback">
+                    Specify percentage of input data to use (0.0 - 100.0%).
+                  </div>
+                </div>               
+              </div>
+            </div>
+
+          </form>
+        </div>
+            <div class="row">
+                <div class="col-md-12" style="background-color:#fff9ee;height:85px;">
+                </div>
+            </div>
+            <div class="row" style="background-color:#fff9ee;">
+                <div class="col-md-12" style="background-color:#fff9ee;">
+
+
+
+
+                    <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators2">
+                        <div class="carousel-inner" role="listbox">
+                            {% for histogram in histograms %}                            
+                                {% if loop.index0 == 0 %}
+                                    <div class="carousel-item active">                                    
+                                {% else %}
+                                    <div class="carousel-item">
+                                {% endif %}
+                                        <img class="w-100 d-block" src="{{ histogram }}" alt="{{ url_for('static', filename='images/loading.gif') }}">
+                                    </div>
+                            {% endfor %}                            
+
+                        </div>
+                        <div><a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleIndicators2" role="button"
+                                data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>
+                        <ol class="carousel-indicators">
+                            {% for histogram in histograms %}
+                                {% if loop.index0 == 0 %}
+                                    <li data-target="#carouselExampleIndicators2" data-slide-to="{{ loop.index0 }}" class="active"></li>
+                                {% else %}
+                                    <li data-target="#carouselExampleIndicators2" data-slide-to="{{ loop.index0 }}"></li>
+                                {% endif %}
+                            {% endfor %}
+
+                        </ol>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>
+    <div></div>
+<!--     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="assets/js/Simple-Slider1.js"></script> -->
+                        <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/Simple-Slider1.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/event-analyser.js') }}"></script>
+</body>
+
+</html>

@@ -98,122 +98,240 @@ def doStuff(samples, eventFeatures):
         imgRef.set(histDict)
         localdb.addToCache(docKey)
 
-@app.route('/DataAnalysis6.html', methods= ['GET', 'POST'])
-def TTF():
+@app.route('/DataAnalysistt5.html', methods = ['GET', 'POST'])
+def DataAnalysistt5():
     if request.method == 'POST':
         samples,eventFeatures = getDefaults()
-        #
+        #### requested ####        
         eventFeatures['percentg_val'] = float(request.form.get("data-percent"))
-        #
-        eventFeatures['nlep_val'] = int(request.form.get("number-charged-leptons-choice"))  
-        #
-        eventFeatures['minnjet_val'] = int(request.form.get("min-number-jets-prompt"))
-        eventFeatures['maxnjet_val'] = int(request.form.get("max-number-jets-prompt"))
-        eventFeatures['st_jetcb'] = 1  
-        #
-        eventFeatures['leppt_val'] = float(request.form.get("min-charged-lepton-transverse-momentum"))
-        eventFeatures['st_lepptcb'] = 1
-        #        
-        eventFeatures['st_missPcb'] = 1
-        eventFeatures['minmissE_val'] = float(request.form.get("min-missing-transverse-momentum-prompt"))
-        eventFeatures['maxmissE_val'] = float(request.form.get("max-missing-transverse-momentum-prompt"))
-        #
-        eventFeatures['btagmin_val'] = int(request.form.get("min-number-b-jets-prompt"))
-        eventFeatures['btagmax_val'] = int(request.form.get("max-number-b-jets-prompt"))
-        eventFeatures['st_btagjetcb'] = 1
-        #
-        doStuff(samples, eventFeatures)
-        return render_template('DataAnalysis6.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])         
-    else:
-        return render_template('DataAnalysis6.html', histograms=[])
 
-@app.route('/DataAnalysis5.html', methods = ['GET', 'POST'])
-def TTE():
-    if request.method == 'POST':
-        samples,eventFeatures = getDefaults()
-        #
-        eventFeatures['percentg_val'] = float(request.form.get("data-percent"))
-        #
-        eventFeatures['nlep_val'] = int(request.form.get("number-charged-leptons-choice"))  
-        #
-        eventFeatures['minnjet_val'] = int(request.form.get("min-number-jets-prompt"))
-        eventFeatures['maxnjet_val'] = int(request.form.get("max-number-jets-prompt"))
-        eventFeatures['st_jetcb'] = 1  
-        #
-        eventFeatures['leppt_val'] = float(request.form.get("min-charged-lepton-transverse-momentum"))
-        eventFeatures['st_lepptcb'] = 1
-        #        
-        eventFeatures['st_missPcb'] = 1
-        eventFeatures['minmissE_val'] = float(request.form.get("min-missing-transverse-momentum-prompt"))
-        eventFeatures['maxmissE_val'] = float(request.form.get("max-missing-transverse-momentum-prompt"))
-        doStuff(samples, eventFeatures)
-        return render_template('DataAnalysis5.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
-    else:
-        return render_template('DataAnalysis5.html', histograms = [])
+        if request.form.get("number-charged-leptons-prompts-charge-same"):
+            eventFeatures['TwoLepcharge_val'] = 1 
+            eventFeatures['st_lepchargecb'] = 1           
+        elif request.form.get("number-charged-leptons-prompts-charge-opp"):
+            eventFeatures['TwoLepcharge_val'] = -1        
+            eventFeatures['st_lepchargecb'] = 1
 
-@app.route('/DataAnalysis4.html', methods = ['GET', 'POST'])
-def TTD():
-    if request.method == 'POST':
-        samples,eventFeatures = getDefaults()
-        #
-        eventFeatures['percentg_val'] = float(request.form.get("data-percent"))
-        #
-        eventFeatures['nlep_val'] = int(request.form.get("number-charged-leptons-choice"))  
-        #
-        eventFeatures['minnjet_val'] = int(request.form.get("min-number-jets-prompt"))
-        eventFeatures['maxnjet_val'] = int(request.form.get("max-number-jets-prompt"))
-        eventFeatures['st_jetcb'] = 1  
-        #
-        eventFeatures['leppt_val'] = float(request.form.get("min-charged-lepton-transverse-momentum"))
-        eventFeatures['st_lepptcb'] = 1
-        #
-        doStuff(samples, eventFeatures)
-        return render_template('DataAnalysis4.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
-    else:
-        return render_template('DataAnalysis4.html', histograms = [])
+        if request.form.get("number-charged-leptons-prompts-flavor-same"):
+            eventFeatures['TwoLepflavour_val'] = 1
+            eventFeatures['st_lepflavourcb'] = 1
+        elif request.form.get("number-charged-leptons-prompts-flavor-diff"):
+            eventFeatures['TwoLepflavour_val'] = -1
+            eventFeatures['st_lepflavourcb'] = 1
 
-@app.route('/DataAnalysis3.html', methods = ['GET', 'POST'])
-def TTC():
+        if request.form.get("min-charged-lepton-transverse-momentum-checkbox"):
+            eventFeatures['leppt_val'] = float(request.form.get("min-charged-lepton-transverse-momentum"))
+            eventFeatures['st_lepptcb'] = 1
+
+        if request.form.get("number-b-jets-checkbox"):
+            eventFeatures['btagmin_val'] = int(request.form.get("min-number-b-jets-prompt"))
+            eventFeatures['btagmax_val'] = int(request.form.get("max-number-b-jets-prompt"))
+            eventFeatures['st_btagjetcb'] = 1
+        
+        if request.form.get("number-jets-checkbox"):
+            eventFeatures['minnjet_val'] = int(request.form.get("min-number-jets-prompt"))
+            eventFeatures['maxnjet_val'] = int(request.form.get("max-number-jets-prompt"))
+            eventFeatures['st_jetcb'] = 1
+
+        if request.form.get("missing-transverse-momentum-checkbox"):
+            eventFeatures['st_missPcb'] = 1
+            eventFeatures['minmissE_val'] = float(request.form.get("min-missing-transverse-momentum-prompt"))
+            eventFeatures['maxmissE_val'] = float(request.form.get("max-missing-transverse-momentum-prompt"))
+                
+        if request.form.get("number-charged-leptons"):
+            eventFeatures['st_lepcb'] = 1
+            eventFeatures['nlep_val'] = int(request.form.get("number-charged-leptons-choice"))            
+            if eventFeatures['nlep_val'] == 1:
+                eventFeatures['LepTmass_val'] = float(request.form.get("min-number-charged-leptons-prompts-transverse-mass"))               
+                eventFeatures['LepTmassMax_val'] = float(request.form.get("max-number-charged-leptons-prompts-transverse-mass"))
+            elif eventFeatures['nlep_val'] == 2:
+                eventFeatures['InvariantM_val'] = float(request.form.get("val-number-charged-leptons-prompts-invariant-mass1"))
+                eventFeatures['Range_val'] = float(request.form.get("unc-number-charged-leptons-prompts-invariant-mass1"))               
+                eventFeatures['st_InvMasscb'] = 1
+            elif eventFeatures['nlep_val'] == 3:
+                eventFeatures['LepTmass_val'] = float(request.form.get("min-number-charged-leptons-prompts-transverse-mass"))               
+                eventFeatures['LepTmassMax_val'] = float(request.form.get("max-number-charged-leptons-prompts-transverse-mass"))
+            elif eventFeatures['nlep_val'] == 4:
+                eventFeatures['InvariantM_val'] = float(request.form.get("val-number-charged-leptons-prompts-invariant-mass1"))
+                eventFeatures['Range_val'] = float(request.form.get("unc-number-charged-leptons-prompts-invariant-mass1"))      
+                eventFeatures['InvariantM2_val'] = float(request.form.get("val-number-charged-leptons-prompts-invariant-mass2"))                   
+        
+        dictSwapMinMax(eventFeatures, 'minmissE_val', 'maxmissE_val')        
+        dictSwapMinMax(eventFeatures, 'btagmin_val', 'btagmax_val')
+        dictSwapMinMax(eventFeatures, 'minnjet_val', 'maxnjet_val')            
+        #### requested ####
+        doStuff(samples, eventFeatures)
+        return render_template('DataAnalysistt5.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
+    else:
+        return render_template('DataAnalysistt5.html', histograms = [])
+
+@app.route('/DataAnalysistt4.html', methods = ['GET', 'POST'])
+def DataAnalysistt4():
     if request.method == 'POST':
         samples,eventFeatures = getDefaults()
-        #
+        #### requested ####        
         eventFeatures['percentg_val'] = float(request.form.get("data-percent"))
-        #
-        eventFeatures['nlep_val'] = int(request.form.get("number-charged-leptons-choice"))  
-        #
-        eventFeatures['minnjet_val'] = int(request.form.get("min-number-jets-prompt"))
-        eventFeatures['maxnjet_val'] = int(request.form.get("max-number-jets-prompt"))
-        eventFeatures['st_jetcb'] = 1          
-        #
+
+        if request.form.get("number-charged-leptons-prompts-charge-same"):
+            eventFeatures['TwoLepcharge_val'] = 1 
+            eventFeatures['st_lepchargecb'] = 1           
+        elif request.form.get("number-charged-leptons-prompts-charge-opp"):
+            eventFeatures['TwoLepcharge_val'] = -1        
+            eventFeatures['st_lepchargecb'] = 1
+
+        if request.form.get("number-charged-leptons-prompts-flavor-same"):
+            eventFeatures['TwoLepflavour_val'] = 1
+            eventFeatures['st_lepflavourcb'] = 1
+        elif request.form.get("number-charged-leptons-prompts-flavor-diff"):
+            eventFeatures['TwoLepflavour_val'] = -1
+            eventFeatures['st_lepflavourcb'] = 1
+
+        if request.form.get("min-charged-lepton-transverse-momentum-checkbox"):
+            eventFeatures['leppt_val'] = float(request.form.get("min-charged-lepton-transverse-momentum"))
+            eventFeatures['st_lepptcb'] = 1
+
+        if request.form.get("number-b-jets-checkbox"):
+            eventFeatures['btagmin_val'] = int(request.form.get("min-number-b-jets-prompt"))
+            eventFeatures['btagmax_val'] = int(request.form.get("max-number-b-jets-prompt"))
+            eventFeatures['st_btagjetcb'] = 1
+        
+        if request.form.get("number-jets-checkbox"):
+            eventFeatures['minnjet_val'] = int(request.form.get("min-number-jets-prompt"))
+            eventFeatures['maxnjet_val'] = int(request.form.get("max-number-jets-prompt"))
+            eventFeatures['st_jetcb'] = 1
+
+        if request.form.get("missing-transverse-momentum-checkbox"):
+            eventFeatures['st_missPcb'] = 1
+            eventFeatures['minmissE_val'] = float(request.form.get("min-missing-transverse-momentum-prompt"))
+            eventFeatures['maxmissE_val'] = float(request.form.get("max-missing-transverse-momentum-prompt"))
+                
+        if request.form.get("number-charged-leptons"):
+            eventFeatures['st_lepcb'] = 1
+            eventFeatures['nlep_val'] = int(request.form.get("number-charged-leptons-choice"))            
+            if eventFeatures['nlep_val'] == 1:
+                eventFeatures['LepTmass_val'] = float(request.form.get("min-number-charged-leptons-prompts-transverse-mass"))               
+                eventFeatures['LepTmassMax_val'] = float(request.form.get("max-number-charged-leptons-prompts-transverse-mass"))
+            elif eventFeatures['nlep_val'] == 2:
+                eventFeatures['InvariantM_val'] = float(request.form.get("val-number-charged-leptons-prompts-invariant-mass1"))
+                eventFeatures['Range_val'] = float(request.form.get("unc-number-charged-leptons-prompts-invariant-mass1"))               
+                eventFeatures['st_InvMasscb'] = 1
+            elif eventFeatures['nlep_val'] == 3:
+                eventFeatures['LepTmass_val'] = float(request.form.get("min-number-charged-leptons-prompts-transverse-mass"))               
+                eventFeatures['LepTmassMax_val'] = float(request.form.get("max-number-charged-leptons-prompts-transverse-mass"))
+            elif eventFeatures['nlep_val'] == 4:
+                eventFeatures['InvariantM_val'] = float(request.form.get("val-number-charged-leptons-prompts-invariant-mass1"))
+                eventFeatures['Range_val'] = float(request.form.get("unc-number-charged-leptons-prompts-invariant-mass1"))      
+                eventFeatures['InvariantM2_val'] = float(request.form.get("val-number-charged-leptons-prompts-invariant-mass2"))                   
+        
+        dictSwapMinMax(eventFeatures, 'minmissE_val', 'maxmissE_val')        
+        dictSwapMinMax(eventFeatures, 'btagmin_val', 'btagmax_val')
+        dictSwapMinMax(eventFeatures, 'minnjet_val', 'maxnjet_val')            
+        #### requested ####
+        doStuff(samples, eventFeatures)
+        return render_template('DataAnalysistt4.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
+    else:
+        return render_template('DataAnalysistt4.html', histograms = [])
+
+@app.route('/DataAnalysistt3.html', methods = ['GET', 'POST'])
+def DataAnalysistt3():
+    if request.method == 'POST':
+        samples,eventFeatures = getDefaults()
+        #### requested ####        
+        eventFeatures['percentg_val'] = float(request.form.get("data-percent"))
+
+        if request.form.get("number-charged-leptons-prompts-charge-same"):
+            eventFeatures['TwoLepcharge_val'] = 1 
+            eventFeatures['st_lepchargecb'] = 1           
+        elif request.form.get("number-charged-leptons-prompts-charge-opp"):
+            eventFeatures['TwoLepcharge_val'] = -1        
+            eventFeatures['st_lepchargecb'] = 1
+
+        if request.form.get("number-charged-leptons-prompts-flavor-same"):
+            eventFeatures['TwoLepflavour_val'] = 1
+            eventFeatures['st_lepflavourcb'] = 1
+        elif request.form.get("number-charged-leptons-prompts-flavor-diff"):
+            eventFeatures['TwoLepflavour_val'] = -1
+            eventFeatures['st_lepflavourcb'] = 1
+
+        if request.form.get("min-charged-lepton-transverse-momentum-checkbox"):
+            eventFeatures['leppt_val'] = float(request.form.get("min-charged-lepton-transverse-momentum"))
+            eventFeatures['st_lepptcb'] = 1
+
+        if request.form.get("number-b-jets-checkbox"):
+            eventFeatures['btagmin_val'] = int(request.form.get("min-number-b-jets-prompt"))
+            eventFeatures['btagmax_val'] = int(request.form.get("max-number-b-jets-prompt"))
+            eventFeatures['st_btagjetcb'] = 1
+        
+        if request.form.get("number-jets-checkbox"):
+            eventFeatures['minnjet_val'] = int(request.form.get("min-number-jets-prompt"))
+            eventFeatures['maxnjet_val'] = int(request.form.get("max-number-jets-prompt"))
+            eventFeatures['st_jetcb'] = 1
+
+        if request.form.get("missing-transverse-momentum-checkbox"):
+            eventFeatures['st_missPcb'] = 1
+            eventFeatures['minmissE_val'] = float(request.form.get("min-missing-transverse-momentum-prompt"))
+            eventFeatures['maxmissE_val'] = float(request.form.get("max-missing-transverse-momentum-prompt"))                
+        
+        dictSwapMinMax(eventFeatures, 'minmissE_val', 'maxmissE_val')        
+        dictSwapMinMax(eventFeatures, 'btagmin_val', 'btagmax_val')
+        dictSwapMinMax(eventFeatures, 'minnjet_val', 'maxnjet_val')            
+        #### requested ####
         doStuff(samples, eventFeatures)        
-        return render_template('DataAnalysis3.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
+        return render_template('DataAnalysistt3.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
     else:
-        return render_template('DataAnalysis3.html', histograms = [])
+        return render_template('DataAnalysistt3.html', histograms = [])
 
-@app.route('/DataAnalysis2.html', methods = ['GET', 'POST'])
-def TTB():
+@app.route('/DataAnalysistt2.html', methods = ['GET', 'POST'])
+def DataAnalysistt2():
     if request.method == 'POST':
         samples,eventFeatures = getDefaults()
+        #### requested ####        
         eventFeatures['percentg_val'] = float(request.form.get("data-percent"))
-        eventFeatures['nlep_val'] = int(request.form.get("number-charged-leptons-choice"))            
-        doStuff(samples, eventFeatures)        
-        return render_template('DataAnalysis2.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])        
-    else:
-        return render_template('DataAnalysis2.html', histograms = [])
 
-@app.route('/DataAnalysistt.html', methods = ['GET', 'POST'])
-def TTA():    
+        if request.form.get("number-charged-leptons-prompts-charge-same"):
+            eventFeatures['TwoLepcharge_val'] = 1 
+            eventFeatures['st_lepchargecb'] = 1           
+        elif request.form.get("number-charged-leptons-prompts-charge-opp"):
+            eventFeatures['TwoLepcharge_val'] = -1        
+            eventFeatures['st_lepchargecb'] = 1
+
+        if request.form.get("number-charged-leptons-prompts-flavor-same"):
+            eventFeatures['TwoLepflavour_val'] = 1
+            eventFeatures['st_lepflavourcb'] = 1
+        elif request.form.get("number-charged-leptons-prompts-flavor-diff"):
+            eventFeatures['TwoLepflavour_val'] = -1
+            eventFeatures['st_lepflavourcb'] = 1
+
+        if request.form.get("min-charged-lepton-transverse-momentum-checkbox"):
+            eventFeatures['leppt_val'] = float(request.form.get("min-charged-lepton-transverse-momentum"))
+            eventFeatures['st_lepptcb'] = 1
+
+        if request.form.get("missing-transverse-momentum-checkbox"):
+            eventFeatures['st_missPcb'] = 1
+            eventFeatures['minmissE_val'] = float(request.form.get("min-missing-transverse-momentum-prompt"))
+            eventFeatures['maxmissE_val'] = float(request.form.get("max-missing-transverse-momentum-prompt"))                   
+        
+        dictSwapMinMax(eventFeatures, 'minmissE_val', 'maxmissE_val')                   
+        #### requested ####         
+        doStuff(samples, eventFeatures)        
+        return render_template('DataAnalysistt2.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])        
+    else:
+        return render_template('DataAnalysistt2.html', histograms = [])
+
+@app.route('/DataAnalysistt1.html', methods = ['GET', 'POST'])
+def DataAnalysistt1():    
     if request.method == 'POST':
         #get defaults
         samples, eventFeatures = getDefaults()        
-        #update params
-        eventFeatures['percentg_val'] = float(request.form.get("data-percent"))
+        #### requested ####        
+        eventFeatures['percentg_val'] = float(request.form.get("data-percent"))          
+        #### requested ####
         #do stuff
         doStuff(samples, eventFeatures)
 
-        return render_template('DataAnalysistt.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])        
+        return render_template('DataAnalysistt1.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])        
     else:
-        return render_template('DataAnalysistt.html', histograms=[])        
+        return render_template('DataAnalysistt1.html', histograms=[])        
 
 @app.route('/introData', methods = ['GET', 'POST'])
 def introData():
