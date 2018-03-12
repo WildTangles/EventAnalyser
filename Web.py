@@ -74,13 +74,15 @@ def getSamplesKey(samples):
     for sample in samples:
         samplesKey += '___{}'.format(sample)            
 
-    return sampleskey
+    return samplesKey
 
 def doStuff(samples, eventFeatures):
 
     dictSwapMinMax(eventFeatures, 'minmissE_val', 'maxmissE_val')        
     dictSwapMinMax(eventFeatures, 'btagmin_val', 'btagmax_val')
     dictSwapMinMax(eventFeatures, 'minnjet_val', 'maxnjet_val')  
+
+    eventFeatures['samplesKey'] = getSamplesKey(samples)
 
     docKey = unicodify(genKey(eventFeatures))        
     imgRef = db.collection(u'imgStore').document(docKey)
@@ -89,7 +91,7 @@ def doStuff(samples, eventFeatures):
         for key, value in imgStore.to_dict().iteritems():
             strToImg(value, 'static/histograms/{}'.format(key))        
     else:
-        startRootAnalysis(eventFeatures)
+        startRootAnalysis(eventFeatures, samples)
         while not getRootStatus():
            pass            
         histDict = {}
@@ -237,10 +239,6 @@ def DataAnalysistt5():
             samples.append('ZPrime2500')
         if request.form.get('data-samples-checkbox-simulated-BSM-ZP-3000'):
             samples.append('ZPrime3000')
-
-
-        print(samples)
-        raise TypeError         
         #### requested ####
         doStuff(samples, eventFeatures)
         return render_template('DataAnalysistt5.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
