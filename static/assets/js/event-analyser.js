@@ -33,20 +33,26 @@ minLEPMprompt = $('#number-charged-leptons-prompts-min-transverse-momentum-inner
 DSC = $('#data-samples-checkbox');
 
 EXP = $('#data-samples-checkbox-experimental-grp');
+EXPCB = $('#data-samples-checkbox-experimental');
 EXPALL = $('#data-samples-checkbox-experimental-options');
 EXPEG = $('#data-samples-checkbox-experimental-options-EGamma');
 EXPM = $('#data-samples-checkbox-experimental-options-Muons');
 
 SIM = $('#data-samples-checkbox-simulated-grp');
+SIMCB = $('#data-samples-checkbox-simulated');
 SIMSM = $('#data-samples-checkbox-simulated-SM-grp');
+SIMSMCB = $('#data-samples-checkbox-simulated-SM');
+SIMSMCB = $('#data-samples-checkbox-simulated-SM');
 
 SIMDB = $('#data-samples-checkbox-simulated-SM-Diboson-grp');
+SIMDBCB = $('#data-samples-checkbox-simulated-SM-Diboson');
 SIMDBALL = $('#data-samples-checkbox-simulated-SM-Diboson-options');
 SIMDBWW = $('#data-samples-checkbox-simulated-SM-Diboson-WW');
 SIMDBZZ = $('#data-samples-checkbox-simulated-SM-Diboson-ZZ');
 SIMDBWZ = $('#data-samples-checkbox-simulated-SM-Diboson-WZ');
 
 SIMSTQP = $('#data-samples-checkbox-simulated-SM-STQP-grp');
+SIMSTQPCB = $('#data-samples-checkbox-simulated-SM-STQP');
 SIMSTQPALL1 = $('#data-samples-checkbox-simulated-SM-STQP1');
 SIMSTQPALL2 = $('#data-samples-checkbox-simulated-SM-STQP2');
 SIMSTQPTT = $('#data-samples-checkbox-simulated-SM-STQP-TT');
@@ -55,12 +61,14 @@ SIMSTQPS = $('#data-samples-checkbox-simulated-SM-STQP-S');
 SIMSTQPWT = $('#data-samples-checkbox-simulated-SM-STQP-WT');
 
 SIMSMZP = $('#data-samples-checkbox-simulated-SM-ZP-grp');
+SIMSMZPCB = $('#data-samples-checkbox-simulated-SM-ZP');
 SIMSMZPALL = $('#data-samples-checkbox-simulated-SM-ZP1');
 SIMSMZPEE = $('#data-samples-checkbox-simulated-SM-ZP-ZEE');
 SIMSMZPMM = $('#data-samples-checkbox-simulated-SM-ZP-ZMM');
 SIMSMZPTT = $('#data-samples-checkbox-simulated-SM-ZP-ZTT');
 
 SIMDY = $('#data-samples-checkbox-simulated-SM-DY-grp');
+SIMDYCB = $('#data-samples-checkbox-simulated-SM-DY');
 SIMDY1 = $('#data-samples-checkbox-simulated-SM-DY1');
 SIMDY2 = $('#data-samples-checkbox-simulated-SM-DY2');
 SIMDYEE1 = $('#data-samples-checkbox-simulated-SM-DY-EE0815');
@@ -71,6 +79,7 @@ SIMDYMM1 = $('#data-samples-checkbox-simulated-SM-DY-MM0815');
 SIMDYMM2 = $('#data-samples-checkbox-simulated-SM-DY-MM1540');
 
 SIMWP = $('#data-samples-checkbox-simulated-SM-WP-grp');
+SIMWPCB = $('#data-samples-checkbox-simulated-SM-WP');
 SIMWP1 = $('#data-samples-checkbox-simulated-SM-WP1');
 SIMWP2 = $('#data-samples-checkbox-simulated-SM-WP2');
 SIMWP3 = $('#data-samples-checkbox-simulated-SM-WP3');
@@ -85,7 +94,9 @@ SIMWPWVBV = $('#data-samples-checkbox-simulated-SM-WP-WVBV');
 SIMWPWVNBV = $('#data-samples-checkbox-simulated-SM-WP-WVNBV');
 
 SIMBSM = $('#data-samples-checkbox-simulated-BSM-grp');
+SIMBSMCB = $('#data-samples-checkbox-simulated-BSM');
 SIMZP = $('#data-samples-checkbox-simulated-BSM-ZP-grp');
+SIMZPCB = $('#data-samples-checkbox-simulated-BSM-ZP');
 SIMZP1 = $('#data-samples-checkbox-simulated-BSM-ZP1');
 SIMZP2 = $('#data-samples-checkbox-simulated-BSM-ZP2');
 SIMZP3 = $('#data-samples-checkbox-simulated-BSM-ZP3');
@@ -431,33 +442,31 @@ SIMZP2.hide();
 SIMZP3.hide();
 SIMZP4.hide();
 
-EXP.prop('checked', false);
-$('#data-samples-checkbox-experimental').prop('checked', false);
-$('#data-samples-checkbox-simulated').prop('checked', false);
+EXPCB.prop('checked', false);
 EXPEG.prop('checked', false);
 EXPM.prop('checked', false);
 
-SIM.prop('checked', false);
+SIMCB.prop('checked', false);
 
-SIMSM.prop('checked', false);
+SIMSMCB.prop('checked', false);
 
-SIMDB.prop('checked', false);
+SIMDBCB.prop('checked', false);
 SIMDBWW.prop('checked', false);
 SIMDBZZ.prop('checked', false);
 SIMDBWZ.prop('checked', false);
 
-SIMSTQP.prop('checked', false);
+SIMSTQPCB.prop('checked', false);
 SIMSTQPTT.prop('checked', false);
 SIMSTQPTAT.prop('checked', false);
 SIMSTQPS.prop('checked', false);
 SIMSTQPWT.prop('checked', false);
 
-SIMSMZP.prop('checked', false);
+SIMSMZPCB.prop('checked', false);
 SIMSMZPEE.prop('checked', false);
 SIMSMZPMM.prop('checked', false);
 SIMSMZPTT.prop('checked', false);
 
-SIMDY.prop('checked', false);
+SIMDYCB.prop('checked', false);
 SIMDYEE1.prop('checked', false);
 SIMDYEE2.prop('checked', false);
 SIMDYTT1.prop('checked', false);
@@ -465,7 +474,7 @@ SIMDYTT2.prop('checked', false);
 SIMDYMM1.prop('checked', false);
 SIMDYMM2.prop('checked', false);
 
-SIMWP.prop('checked', false);
+SIMWPCB.prop('checked', false);
 SIMWPEVB.prop('checked', false);
 SIMWPEVBV.prop('checked', false);
 SIMWPEVNBV.prop('checked', false);
@@ -476,9 +485,9 @@ SIMWPWVB.prop('checked', false);
 SIMWPWVBV.prop('checked', false);
 SIMWPWVNBV.prop('checked', false);
 
-SIMBSM.prop('checked', false);
+SIMBSMCB.prop('checked', false);
 
-SIMZP.prop('checked', false);
+SIMZPCB.prop('checked', false);
 SIMZP400.prop('checked', false);
 SIMZP500.prop('checked', false);
 SIMZP750.prop('checked', false);
@@ -524,33 +533,31 @@ SIMZP2.hide();
 SIMZP3.hide();
 SIMZP4.hide();
 
-EXP.prop('checked', false);
-$('#data-samples-checkbox-experimental').prop('checked', false);
-$('#data-samples-checkbox-simulated').prop('checked', false);
+EXPCB.prop('checked', false);
 EXPEG.prop('checked', false);
 EXPM.prop('checked', false);
 
-SIM.prop('checked', false);
+SIMCB.prop('checked', false);
 
-SIMSM.prop('checked', false);
+SIMSMCB.prop('checked', false);
 
-SIMDB.prop('checked', false);
+SIMDBCB.prop('checked', false);
 SIMDBWW.prop('checked', false);
 SIMDBZZ.prop('checked', false);
 SIMDBWZ.prop('checked', false);
 
-SIMSTQP.prop('checked', false);
+SIMSTQPCB.prop('checked', false);
 SIMSTQPTT.prop('checked', false);
 SIMSTQPTAT.prop('checked', false);
 SIMSTQPS.prop('checked', false);
 SIMSTQPWT.prop('checked', false);
 
-SIMSMZP.prop('checked', false);
+SIMSMZPCB.prop('checked', false);
 SIMSMZPEE.prop('checked', false);
 SIMSMZPMM.prop('checked', false);
 SIMSMZPTT.prop('checked', false);
 
-SIMDY.prop('checked', false);
+SIMDYCB.prop('checked', false);
 SIMDYEE1.prop('checked', false);
 SIMDYEE2.prop('checked', false);
 SIMDYTT1.prop('checked', false);
@@ -558,7 +565,7 @@ SIMDYTT2.prop('checked', false);
 SIMDYMM1.prop('checked', false);
 SIMDYMM2.prop('checked', false);
 
-SIMWP.prop('checked', false);
+SIMWPCB.prop('checked', false);
 SIMWPEVB.prop('checked', false);
 SIMWPEVBV.prop('checked', false);
 SIMWPEVNBV.prop('checked', false);
@@ -569,9 +576,9 @@ SIMWPWVB.prop('checked', false);
 SIMWPWVBV.prop('checked', false);
 SIMWPWVNBV.prop('checked', false);
 
-SIMBSM.prop('checked', false);
+SIMBSMCB.prop('checked', false);
 
-SIMZP.prop('checked', false);
+SIMZPCB.prop('checked', false);
 SIMZP400.prop('checked', false);
 SIMZP500.prop('checked', false);
 SIMZP750.prop('checked', false);
@@ -587,8 +594,494 @@ SIMZP3000.prop('checked', false);
   }
 });
 
+JETcheckbox.on('click', function(){
+  if($(this).is(':checked')){
+    JETprompt.show();
+    bJETcheckboxgroup.show();
+    bJETcheckboxhelp.show();
+    JETprompt.find('input').attr('required', true);
+    JETprompt.find('input').val(' ');
+    bJETprompt.find('input').val(' ');
+  } else {
+    JETprompt.hide();
+    bJETprompt.hide();
+    bJETcheckboxgroup.hide();
+    bJETcheckboxhelp.hide();
+    JETprompt.find('input').attr('required', false);
+    JETprompt.find('input').val(' ');
+    bJETprompt.find('input').attr('required', false);
+    bJETprompt.find('input').val(' ');
+    bJETcheckbox.prop('checked', false);
+  }
+});
+
+EXPCB.on('click', function(){
+    if($(this).is(':checked')){
+        EXPALL.show();
+        EXPEG.prop('checked', false);
+        EXPM.prop('checked', false);
+    } else {
+        EXPALL.hide();
+        EXPEG.prop('checked', false);
+        EXPM.prop('checked', false);
+    }
+});
+
+SIMCB.on('click', function(){
+    if($(this).is(':checked')){
+
+SIMSM.show();
+SIMDB.hide();
+SIMDBALL.hide();
+
+SIMSTQP.hide();
+SIMSTQPALL1.hide();
+SIMSTQPALL2.hide();
+
+SIMSMZP.hide();
+SIMSMZPALL.hide();
+
+SIMDY.hide();
+SIMDY1.hide();
+SIMDY2.hide();
+
+SIMWP.hide();
+SIMWP1.hide();
+SIMWP2.hide();
+SIMWP3.hide();
+
+SIMBSM.show();
+SIMZP.hide();
+SIMZP1.hide();
+SIMZP2.hide();
+SIMZP3.hide();
+SIMZP4.hide();
+
+SIMSMCB.prop('checked', false);
+
+SIMDBCB.prop('checked', false);
+SIMDBWW.prop('checked', false);
+SIMDBZZ.prop('checked', false);
+SIMDBWZ.prop('checked', false);
+
+SIMSTQPCB.prop('checked', false);
+SIMSTQPTT.prop('checked', false);
+SIMSTQPTAT.prop('checked', false);
+SIMSTQPS.prop('checked', false);
+SIMSTQPWT.prop('checked', false);
+
+SIMSMZPCB.prop('checked', false);
+SIMSMZPEE.prop('checked', false);
+SIMSMZPMM.prop('checked', false);
+SIMSMZPTT.prop('checked', false);
+
+SIMDYCB.prop('checked', false);
+SIMDYEE1.prop('checked', false);
+SIMDYEE2.prop('checked', false);
+SIMDYTT1.prop('checked', false);
+SIMDYTT2.prop('checked', false);
+SIMDYMM1.prop('checked', false);
+SIMDYMM2.prop('checked', false);
+
+SIMWPCB.prop('checked', false);
+SIMWPEVB.prop('checked', false);
+SIMWPEVBV.prop('checked', false);
+SIMWPEVNBV.prop('checked', false);
+SIMWPTVB.prop('checked', false);
+SIMWPTVBV.prop('checked', false);
+SIMWPTVNBV.prop('checked', false);
+SIMWPWVB.prop('checked', false);
+SIMWPWVBV.prop('checked', false);
+SIMWPWVNBV.prop('checked', false);
+
+SIMBSMCB.prop('checked', false);
+
+SIMZPCB.prop('checked', false);
+SIMZP400.prop('checked', false);
+SIMZP500.prop('checked', false);
+SIMZP750.prop('checked', false);
+SIMZP1000.prop('checked', false);
+SIMZP1250.prop('checked', false);
+SIMZP1500.prop('checked', false);
+SIMZP1750.prop('checked', false);
+SIMZP2000.prop('checked', false);
+SIMZP2250.prop('checked', false);
+SIMZP2500.prop('checked', false);
+SIMZP3000.prop('checked', false);
+
+    } else {
+
+SIMSM.hide();
+SIMDB.hide();
+SIMDBALL.hide();
+
+SIMSTQP.hide();
+SIMSTQPALL1.hide();
+SIMSTQPALL2.hide();
+
+SIMSMZP.hide();
+SIMSMZPALL.hide();
+
+SIMDY.hide();
+SIMDY1.hide();
+SIMDY2.hide();
+
+SIMWP.hide();
+SIMWP1.hide();
+SIMWP2.hide();
+SIMWP3.hide();
+
+SIMBSM.hide();
+SIMZP.hide();
+SIMZP1.hide();
+SIMZP2.hide();
+SIMZP3.hide();
+SIMZP4.hide();
+
+SIMSMCB.prop('checked', false);
+
+SIMDBCB.prop('checked', false);
+SIMDBWW.prop('checked', false);
+SIMDBZZ.prop('checked', false);
+SIMDBWZ.prop('checked', false);
+
+SIMSTQPCB.prop('checked', false);
+SIMSTQPTT.prop('checked', false);
+SIMSTQPTAT.prop('checked', false);
+SIMSTQPS.prop('checked', false);
+SIMSTQPWT.prop('checked', false);
+
+SIMSMZPCB.prop('checked', false);
+SIMSMZPEE.prop('checked', false);
+SIMSMZPMM.prop('checked', false);
+SIMSMZPTT.prop('checked', false);
+
+SIMDYCB.prop('checked', false);
+SIMDYEE1.prop('checked', false);
+SIMDYEE2.prop('checked', false);
+SIMDYTT1.prop('checked', false);
+SIMDYTT2.prop('checked', false);
+SIMDYMM1.prop('checked', false);
+SIMDYMM2.prop('checked', false);
+
+SIMWPCB.prop('checked', false);
+SIMWPEVB.prop('checked', false);
+SIMWPEVBV.prop('checked', false);
+SIMWPEVNBV.prop('checked', false);
+SIMWPTVB.prop('checked', false);
+SIMWPTVBV.prop('checked', false);
+SIMWPTVNBV.prop('checked', false);
+SIMWPWVB.prop('checked', false);
+SIMWPWVBV.prop('checked', false);
+SIMWPWVNBV.prop('checked', false);
+
+SIMBSMCB.prop('checked', false);
+
+SIMZPCB.prop('checked', false);
+SIMZP400.prop('checked', false);
+SIMZP500.prop('checked', false);
+SIMZP750.prop('checked', false);
+SIMZP1000.prop('checked', false);
+SIMZP1250.prop('checked', false);
+SIMZP1500.prop('checked', false);
+SIMZP1750.prop('checked', false);
+SIMZP2000.prop('checked', false);
+SIMZP2250.prop('checked', false);
+SIMZP2500.prop('checked', false);
+SIMZP3000.prop('checked', false);
+
+    }
+});
+
+SIMBSMCB.on('click', function(){
+    if($(this).is(':checked')){
+        SIMZP.show();
+        SIMZP1.hide();
+        SIMZP2.hide();
+        SIMZP3.hide();
+        SIMZP4.hide();
+        SIMZPCB.prop('checked', false);
+        SIMZP400.prop('checked', false);
+        SIMZP500.prop('checked', false);
+        SIMZP750.prop('checked', false);
+        SIMZP1000.prop('checked', false);
+        SIMZP1250.prop('checked', false);
+        SIMZP1500.prop('checked', false);
+        SIMZP1750.prop('checked', false);
+        SIMZP2000.prop('checked', false);
+        SIMZP2250.prop('checked', false);
+        SIMZP2500.prop('checked', false);
+        SIMZP3000.prop('checked', false);
+    } else {
+        SIMZP.hide();
+        SIMZP1.hide();
+        SIMZP2.hide();
+        SIMZP3.hide();
+        SIMZP4.hide();
+        SIMZPCB.prop('checked', false);
+        SIMZP400.prop('checked', false);
+        SIMZP500.prop('checked', false);
+        SIMZP750.prop('checked', false);
+        SIMZP1000.prop('checked', false);
+        SIMZP1250.prop('checked', false);
+        SIMZP1500.prop('checked', false);
+        SIMZP1750.prop('checked', false);
+        SIMZP2000.prop('checked', false);
+        SIMZP2250.prop('checked', false);
+        SIMZP2500.prop('checked', false);
+        SIMZP3000.prop('checked', false);
+    }
+});
+
+SIMZPCB.on('click', function(){
+    if($(this).is(':checked')){
+        SIMZP1.show();
+        SIMZP2.show();
+        SIMZP3.show();
+        SIMZP4.show();
+        SIMZP400.prop('checked', false);
+        SIMZP500.prop('checked', false);
+        SIMZP750.prop('checked', false);
+        SIMZP1000.prop('checked', false);
+        SIMZP1250.prop('checked', false);
+        SIMZP1500.prop('checked', false);
+        SIMZP1750.prop('checked', false);
+        SIMZP2000.prop('checked', false);
+        SIMZP2250.prop('checked', false);
+        SIMZP2500.prop('checked', false);
+        SIMZP3000.prop('checked', false);   
+    } else {
+        SIMZP1.hide();
+        SIMZP2.hide();
+        SIMZP3.hide();
+        SIMZP4.hide();
+        SIMZP400.prop('checked', false);
+        SIMZP500.prop('checked', false);
+        SIMZP750.prop('checked', false);
+        SIMZP1000.prop('checked', false);
+        SIMZP1250.prop('checked', false);
+        SIMZP1500.prop('checked', false);
+        SIMZP1750.prop('checked', false);
+        SIMZP2000.prop('checked', false);
+        SIMZP2250.prop('checked', false);
+        SIMZP2500.prop('checked', false);
+        SIMZP3000.prop('checked', false);
+    }
+});
+
+SIMSMCB.on('click', function(){
+    if($(this).is(':checked')){
+
+SIMDB.show();
+SIMDBALL.hide();
+
+SIMSTQP.show();
+SIMSTQPALL1.hide();
+SIMSTQPALL2.hide();
+
+SIMSMZP.show();
+SIMSMZPALL.hide();
+
+SIMDY.show();
+SIMDY1.hide();
+SIMDY2.hide();
+
+SIMWP.show();
+SIMWP1.hide();
+SIMWP2.hide();
+SIMWP3.hide();
+
+SIMDBCB.prop('checked', false);
+SIMDBWW.prop('checked', false);
+SIMDBZZ.prop('checked', false);
+SIMDBWZ.prop('checked', false);
+
+SIMSTQPCB.prop('checked', false);
+SIMSTQPTT.prop('checked', false);
+SIMSTQPTAT.prop('checked', false);
+SIMSTQPS.prop('checked', false);
+SIMSTQPWT.prop('checked', false);
+
+SIMSMZPCB.prop('checked', false);
+SIMSMZPEE.prop('checked', false);
+SIMSMZPMM.prop('checked', false);
+SIMSMZPTT.prop('checked', false);
+
+SIMDYCB.prop('checked', false);
+SIMDYEE1.prop('checked', false);
+SIMDYEE2.prop('checked', false);
+SIMDYTT1.prop('checked', false);
+SIMDYTT2.prop('checked', false);
+SIMDYMM1.prop('checked', false);
+SIMDYMM2.prop('checked', false);
+
+SIMWPCB.prop('checked', false);
+SIMWPEVB.prop('checked', false);
+SIMWPEVBV.prop('checked', false);
+SIMWPEVNBV.prop('checked', false);
+SIMWPTVB.prop('checked', false);
+SIMWPTVBV.prop('checked', false);
+SIMWPTVNBV.prop('checked', false);
+SIMWPWVB.prop('checked', false);
+SIMWPWVBV.prop('checked', false);
+SIMWPWVNBV.prop('checked', false);
 
 
+    } else {
+
+SIMDB.hide();
+SIMDBALL.hide();
+
+SIMSTQP.hide();
+SIMSTQPALL1.hide();
+SIMSTQPALL2.hide();
+
+SIMSMZP.hide();
+SIMSMZPALL.hide();
+
+SIMDY.hide();
+SIMDY1.hide();
+SIMDY2.hide();
+
+SIMWP.hide();
+SIMWP1.hide();
+SIMWP2.hide();
+SIMWP3.hide();
+
+SIMDBCB.prop('checked', false);
+SIMDBWW.prop('checked', false);
+SIMDBZZ.prop('checked', false);
+SIMDBWZ.prop('checked', false);
+
+SIMSTQPCB.prop('checked', false);
+SIMSTQPTT.prop('checked', false);
+SIMSTQPTAT.prop('checked', false);
+SIMSTQPS.prop('checked', false);
+SIMSTQPWT.prop('checked', false);
+
+SIMSMZPCB.prop('checked', false);
+SIMSMZPEE.prop('checked', false);
+SIMSMZPMM.prop('checked', false);
+SIMSMZPTT.prop('checked', false);
+
+SIMDYCB.prop('checked', false);
+SIMDYEE1.prop('checked', false);
+SIMDYEE2.prop('checked', false);
+SIMDYTT1.prop('checked', false);
+SIMDYTT2.prop('checked', false);
+SIMDYMM1.prop('checked', false);
+SIMDYMM2.prop('checked', false);
+
+SIMWPCB.prop('checked', false);
+SIMWPEVB.prop('checked', false);
+SIMWPEVBV.prop('checked', false);
+SIMWPEVNBV.prop('checked', false);
+SIMWPTVB.prop('checked', false);
+SIMWPTVBV.prop('checked', false);
+SIMWPTVNBV.prop('checked', false);
+SIMWPWVB.prop('checked', false);
+SIMWPWVBV.prop('checked', false);
+SIMWPWVNBV.prop('checked', false);
+    }
+});
+
+SIMDBCB.on('click', function(){
+    if($(this).is(':checked')){
+        SIMDBALL.show();
+        SIMDBWW.prop('checked', false);
+        SIMDBZZ.prop('checked', false);
+        SIMDBWZ.prop('checked', false);
+    } else {
+        SIMDBALL.hide();
+        SIMDBWW.prop('checked', false);
+        SIMDBZZ.prop('checked', false);
+        SIMDBWZ.prop('checked', false); 
+    }
+});
+
+SIMSTQPCB.on('click', function(){
+    if($(this).is(':checked')){
+        SIMSTQPALL1.show();
+        SIMSTQPALL2.show();
+        SIMSTQPTT.prop('checked', false);
+        SIMSTQPTAT.prop('checked', false);
+        SIMSTQPS.prop('checked', false);
+        SIMSTQPWT.prop('checked', false);
+    } else {
+        SIMSTQPALL1.hide();
+        SIMSTQPALL2.hide();
+        SIMSTQPTT.prop('checked', false);
+        SIMSTQPTAT.prop('checked', false);
+        SIMSTQPS.prop('checked', false);
+        SIMSTQPWT.prop('checked', false);
+    }
+});
+
+SIMSMZPCB.on('click', function(){
+    if($(this).is(':checked')){
+        SIMSMZPALL.show();
+        SIMSMZPEE.prop('checked', false);
+        SIMSMZPMM.prop('checked', false);
+        SIMSMZPTT.prop('checked', false);
+    } else {
+        SIMSMZPALL.hide();
+        SIMSMZPEE.prop('checked', false);
+        SIMSMZPMM.prop('checked', false);
+        SIMSMZPTT.prop('checked', false);
+    }
+});
+
+SIMDYCB.on('click', function(){
+    if($(this).is(':checked')){
+        SIMDY1.show();
+        SIMDY2.show();
+        SIMDYEE1.prop('checked', false);
+        SIMDYEE2.prop('checked', false);
+        SIMDYTT1.prop('checked', false);
+        SIMDYTT2.prop('checked', false);
+        SIMDYMM1.prop('checked', false);
+        SIMDYEE2.prop('checked', false);
+    } else {
+        SIMDY1.hide();
+        SIMDY2.hide();
+        SIMDYEE1.prop('checked', false);
+        SIMDYEE2.prop('checked', false);
+        SIMDYTT1.prop('checked', false);
+        SIMDYTT2.prop('checked', false);
+        SIMDYMM1.prop('checked', false);
+        SIMDYEE2.prop('checked', false);
+    }
+});
+
+SIMWPCB.on('click', function(){
+    if($(this).is(':checked')){
+        SIMWP1.show();
+        SIMWP2.show();
+        SIMWP3.show();
+        SIMWPEVB.prop('checked', false);
+        SIMWPEVBV.prop('checked', false);
+        SIMWPEVNBV.prop('checked', false);
+        SIMWPTVB.prop('checked', false);
+        SIMWPTVBV.prop('checked', false);
+        SIMWPTVNBV.prop('checked', false);
+        SIMWPWVB.prop('checked', false);
+        SIMWPWVBV.prop('checked', false);
+        SIMWPWVNBV.prop('checked', false);
+    } else {
+        SIMWP1.hide();
+        SIMWP2.hide();
+        SIMWP3.hide();
+        SIMWPEVB.prop('checked', false);
+        SIMWPEVBV.prop('checked', false);
+        SIMWPEVNBV.prop('checked', false);
+        SIMWPTVB.prop('checked', false);
+        SIMWPTVBV.prop('checked', false);
+        SIMWPTVNBV.prop('checked', false);
+        SIMWPWVB.prop('checked', false);
+        SIMWPWVBV.prop('checked', false);
+        SIMWPWVNBV.prop('checked', false);
+    }
+});
 
 GO.on('click', function(){
     // Fetch all the forms we want to apply custom Bootstrap validation styles to

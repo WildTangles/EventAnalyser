@@ -158,7 +158,89 @@ def DataAnalysistt5():
         
         dictSwapMinMax(eventFeatures, 'minmissE_val', 'maxmissE_val')        
         dictSwapMinMax(eventFeatures, 'btagmin_val', 'btagmax_val')
-        dictSwapMinMax(eventFeatures, 'minnjet_val', 'maxnjet_val')            
+        dictSwapMinMax(eventFeatures, 'minnjet_val', 'maxnjet_val')     
+
+
+        if request.form.get('data-samples-checkbox-experimental-options-EGamma'):
+            samples.append('data_Egamma')
+        if request.form.get('data-samples-checkbox-experimental-options-Muons'):
+            samples.append('data_Muons')
+        if request.form.get('data-samples-checkbox-simulated-SM-Diboson-WW'):
+            samples.append('WW')
+        if request.form.get('data-samples-checkbox-simulated-SM-Diboson-WZ'):
+            samples.append('WZ')
+        if request.form.get('data-samples-checkbox-simulated-SM-Diboson-ZZ'):
+            samples.append('ZZ')
+        if request.form.get('data-samples-checkbox-simulated-SM-STQP-TT'):
+            samples.append('stop_tchan_top')
+        if request.form.get('data-samples-checkbox-simulated-SM-STQP-TAT'):
+            samples.append('stop_tchan_antitop')
+        if request.form.get('data-samples-checkbox-simulated-SM-STQP-S'):
+            samples.append('stop_schan')
+        if request.form.get('data-samples-checkbox-simulated-SM-STQP-WT'):
+            samples.append('stop_wtchan')
+        if request.form.get('data-samples-checkbox-simulated-SM-ZP-ZEE'):
+            samples.append('Zee')
+        if request.form.get('data-samples-checkbox-simulated-SM-ZP-ZMM'):
+            samples.append('Zmumu')
+        if request.form.get('data-samples-checkbox-simulated-SM-ZP-ZTT'):
+            samples.append('Ztautau')
+        if request.form.get('data-samples-checkbox-simulated-SM-DY-EE0815'):
+            samples.append('DYeeM08to15')
+        if request.form.get('data-samples-checkbox-simulated-SM-DY-EE1540'):
+            samples.append('DYeeM15to40')
+        if request.form.get('data-samples-checkbox-simulated-SM-DY-MM0815'):
+            samples.append('DYmumuM08to15')
+        if request.form.get('data-samples-checkbox-simulated-SM-DY-MM1540'):
+            samples.append('DYmumuM15to40')
+        if request.form.get('data-samples-checkbox-simulated-SM-DY-TT0815'):
+            samples.append('DYtautauM08to15')
+        if request.form.get('data-samples-checkbox-simulated-SM-DY-TT1540'):
+            samples.append('DYtautauM15to40')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-EVB'):
+            samples.append('WenuWithB')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-EVBV'):
+            samples.append('WenuJetsBVeto')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-EVNBV'):
+            samples.append('WenuNoJetsBVeto')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-MVB'):
+            samples.append('WmunuWithB')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-MVBV'):
+            samples.append('WmunuJetsBVeto')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-MVNBV'):
+            samples.append('WmunuNoJetsBVeto')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-TVB'):
+            samples.append('WtaunuWithB')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-TVBV'):
+            samples.append('WtaunuJetsBVeto')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-TVNBV'):
+            samples.append('WtaunuNoJetsBVeto')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-400'):
+            samples.append('ZPrime400')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-500'):
+            samples.append('ZPrime500')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-750'):
+            samples.append('ZPrime750')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-1000'):
+            samples.append('ZPrime1000')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-1250'):
+            samples.append('ZPrime1250')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-1500'):
+            samples.append('ZPrime1500')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-1750'):
+            samples.append('ZPrime1750')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-2000'):
+            samples.append('ZPrime2000')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-2250'):
+            samples.append('ZPrime2250')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-2500'):
+            samples.append('ZPrime2500')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-3000'):
+            samples.append('ZPrime3000')
+
+
+        print(samples)
+        raise TypeError         
         #### requested ####
         doStuff(samples, eventFeatures)
         return render_template('DataAnalysistt5.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
@@ -200,7 +282,7 @@ def DataAnalysistt4():
             eventFeatures['maxnjet_val'] = int(request.form.get("max-number-jets-prompt"))
             eventFeatures['st_jetcb'] = 1
 
-        if request.form.get("missing-transverse-momentum-checkbox"):
+        if request.form.get("   "):
             eventFeatures['st_missPcb'] = 1
             eventFeatures['minmissE_val'] = float(request.form.get("min-missing-transverse-momentum-prompt"))
             eventFeatures['maxmissE_val'] = float(request.form.get("max-missing-transverse-momentum-prompt"))
