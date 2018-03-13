@@ -76,6 +76,14 @@ def getSamplesKey(samples):
 
     return samplesKey
 
+def trimLabels(labels):
+    nLabels = []
+    for label in labels:
+        tmp = label.replace("static/histograms/", "")
+        tmp = tmp.replace(".gif","")
+        nLabels.append(tmp)    
+    return nLabels
+
 def doStuff(samples, eventFeatures):
 
     dictSwapMinMax(eventFeatures, 'minmissE_val', 'maxmissE_val')        
@@ -262,7 +270,9 @@ def DataAnalysistt6():
             samples.append('ZPrime3000')
         #### requested ####
         doStuff(samples, eventFeatures)
-        return render_template('DataAnalysistt6.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
+        histograms = [histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")]
+        histLabels = trimLabels([histogram for histogram in glob.glob("static/histograms/*.gif")])        
+        return render_template('DataAnalysistt6.html', histograms=zip(histograms,histLabels))                
     else:
         return render_template('DataAnalysistt6.html', histograms = [])
 
@@ -407,7 +417,9 @@ def DataAnalysistt5():
             samples.append('ZPrime3000')
         #### requested ####
         doStuff(samples, eventFeatures)
-        return render_template('DataAnalysistt5.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
+        histograms = [histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")]
+        histLabels = trimLabels([histogram for histogram in glob.glob("static/histograms/*.gif")])        
+        return render_template('DataAnalysistt5.html', histograms=zip(histograms,histLabels))   
     else:
         return render_template('DataAnalysistt5.html', histograms = [])
 
@@ -474,7 +486,9 @@ def DataAnalysistt4():
         dictSwapMinMax(eventFeatures, 'minnjet_val', 'maxnjet_val')            
         #### requested ####
         doStuff(samples, eventFeatures)
-        return render_template('DataAnalysistt4.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
+        histograms = [histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")]
+        histLabels = trimLabels([histogram for histogram in glob.glob("static/histograms/*.gif")])        
+        return render_template('DataAnalysistt4.html', histograms=zip(histograms,histLabels))   
     else:
         return render_template('DataAnalysistt4.html', histograms = [])
 
@@ -523,7 +537,9 @@ def DataAnalysistt3():
         dictSwapMinMax(eventFeatures, 'minnjet_val', 'maxnjet_val')            
         #### requested ####
         doStuff(samples, eventFeatures)        
-        return render_template('DataAnalysistt3.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
+        histograms = [histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")]
+        histLabels = trimLabels([histogram for histogram in glob.glob("static/histograms/*.gif")])        
+        return render_template('DataAnalysistt3.html', histograms=zip(histograms,histLabels))   
     else:
         return render_template('DataAnalysistt3.html', histograms = [])
 
@@ -560,7 +576,9 @@ def DataAnalysistt2():
         dictSwapMinMax(eventFeatures, 'minmissE_val', 'maxmissE_val')                   
         #### requested ####         
         doStuff(samples, eventFeatures)        
-        return render_template('DataAnalysistt2.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])        
+        histograms = [histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")]
+        histLabels = trimLabels([histogram for histogram in glob.glob("static/histograms/*.gif")])        
+        return render_template('DataAnalysistt2.html', histograms=zip(histograms,histLabels))   
     else:
         return render_template('DataAnalysistt2.html', histograms = [])
 
@@ -575,7 +593,9 @@ def DataAnalysistt1():
         #do stuff
         doStuff(samples, eventFeatures)
 
-        return render_template('DataAnalysistt1.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])        
+        histograms = [histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")]
+        histLabels = trimLabels([histogram for histogram in glob.glob("static/histograms/*.gif")])        
+        return render_template('DataAnalysistt1.html', histograms=zip(histograms,histLabels))   
     else:
         return render_template('DataAnalysistt1.html', histograms=[])        
 
