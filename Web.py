@@ -121,6 +121,151 @@ def doStuff(samples, eventFeatures):
                 #pushes to firestore fine but does not close the stream properly..
                 pass
 
+@app.route('/DataAnalysistt6.html', methods = ['GET', 'POST'])
+def DataAnalysistt6():
+    if request.method == 'POST':
+        samples,eventFeatures = getDefaults()
+        #### requested ####        
+        eventFeatures['percentg_val'] = float(request.form.get("data-percent"))
+
+        if request.form.get("number-charged-leptons-prompts-charge-same"):
+            eventFeatures['TwoLepcharge_val'] = 1 
+            eventFeatures['st_lepchargecb'] = 1           
+        elif request.form.get("number-charged-leptons-prompts-charge-opp"):
+            eventFeatures['TwoLepcharge_val'] = -1        
+            eventFeatures['st_lepchargecb'] = 1
+
+        if request.form.get("number-charged-leptons-prompts-flavor-same"):
+            eventFeatures['TwoLepflavour_val'] = 1
+            eventFeatures['st_lepflavourcb'] = 1
+        elif request.form.get("number-charged-leptons-prompts-flavor-diff"):
+            eventFeatures['TwoLepflavour_val'] = -1
+            eventFeatures['st_lepflavourcb'] = 1
+
+        if request.form.get("min-charged-lepton-transverse-momentum-checkbox"):
+            eventFeatures['leppt_val'] = float(request.form.get("min-charged-lepton-transverse-momentum"))
+            eventFeatures['st_lepptcb'] = 1
+
+        if request.form.get("number-b-jets-checkbox"):
+            eventFeatures['btagmin_val'] = int(request.form.get("min-number-b-jets-prompt"))
+            eventFeatures['btagmax_val'] = int(request.form.get("max-number-b-jets-prompt"))
+            eventFeatures['st_btagjetcb'] = 1
+        
+        if request.form.get("number-jets-checkbox"):
+            eventFeatures['minnjet_val'] = int(request.form.get("min-number-jets-prompt"))
+            eventFeatures['maxnjet_val'] = int(request.form.get("max-number-jets-prompt"))
+            eventFeatures['st_jetcb'] = 1
+
+        if request.form.get("missing-transverse-momentum-checkbox"):
+            eventFeatures['st_missPcb'] = 1
+            eventFeatures['minmissE_val'] = float(request.form.get("min-missing-transverse-momentum-prompt"))
+            eventFeatures['maxmissE_val'] = float(request.form.get("max-missing-transverse-momentum-prompt"))
+                
+        if request.form.get("number-charged-leptons"):
+            eventFeatures['st_lepcb'] = 1
+            eventFeatures['nlep_val'] = int(request.form.get("number-charged-leptons-choice"))            
+            if eventFeatures['nlep_val'] == 1:
+                eventFeatures['LepTmass_val'] = float(request.form.get("min-number-charged-leptons-prompts-transverse-mass"))               
+                eventFeatures['LepTmassMax_val'] = float(request.form.get("max-number-charged-leptons-prompts-transverse-mass"))
+            elif eventFeatures['nlep_val'] == 2:
+                eventFeatures['InvariantM_val'] = float(request.form.get("val-number-charged-leptons-prompts-invariant-mass1"))
+                eventFeatures['Range_val'] = float(request.form.get("unc-number-charged-leptons-prompts-invariant-mass1"))               
+                eventFeatures['st_InvMasscb'] = 1
+            elif eventFeatures['nlep_val'] == 3:
+                eventFeatures['LepTmass_val'] = float(request.form.get("min-number-charged-leptons-prompts-transverse-mass"))               
+                eventFeatures['LepTmassMax_val'] = float(request.form.get("max-number-charged-leptons-prompts-transverse-mass"))
+            elif eventFeatures['nlep_val'] == 4:
+                eventFeatures['InvariantM_val'] = float(request.form.get("val-number-charged-leptons-prompts-invariant-mass1"))
+                eventFeatures['Range_val'] = float(request.form.get("unc-number-charged-leptons-prompts-invariant-mass1"))      
+                eventFeatures['InvariantM2_val'] = float(request.form.get("val-number-charged-leptons-prompts-invariant-mass2"))                   
+        
+        dictSwapMinMax(eventFeatures, 'minmissE_val', 'maxmissE_val')        
+        dictSwapMinMax(eventFeatures, 'btagmin_val', 'btagmax_val')
+        dictSwapMinMax(eventFeatures, 'minnjet_val', 'maxnjet_val')     
+
+
+        if request.form.get('data-samples-checkbox-experimental-options-EGamma'):
+            samples.append('data_Egamma')
+        if request.form.get('data-samples-checkbox-experimental-options-Muons'):
+            samples.append('data_Muons')
+        if request.form.get('data-samples-checkbox-simulated-SM-Diboson-WW'):
+            samples.append('WW')
+        if request.form.get('data-samples-checkbox-simulated-SM-Diboson-WZ'):
+            samples.append('WZ')
+        if request.form.get('data-samples-checkbox-simulated-SM-Diboson-ZZ'):
+            samples.append('ZZ')
+        if request.form.get('data-samples-checkbox-simulated-SM-STQP-TT'):
+            samples.append('stop_tchan_top')
+        if request.form.get('data-samples-checkbox-simulated-SM-STQP-TAT'):
+            samples.append('stop_tchan_antitop')
+        if request.form.get('data-samples-checkbox-simulated-SM-STQP-S'):
+            samples.append('stop_schan')
+        if request.form.get('data-samples-checkbox-simulated-SM-STQP-WT'):
+            samples.append('stop_wtchan')
+        if request.form.get('data-samples-checkbox-simulated-SM-ZP-ZEE'):
+            samples.append('Zee')
+        if request.form.get('data-samples-checkbox-simulated-SM-ZP-ZMM'):
+            samples.append('Zmumu')
+        if request.form.get('data-samples-checkbox-simulated-SM-ZP-ZTT'):
+            samples.append('Ztautau')
+        if request.form.get('data-samples-checkbox-simulated-SM-DY-EE0815'):
+            samples.append('DYeeM08to15')
+        if request.form.get('data-samples-checkbox-simulated-SM-DY-EE1540'):
+            samples.append('DYeeM15to40')
+        if request.form.get('data-samples-checkbox-simulated-SM-DY-MM0815'):
+            samples.append('DYmumuM08to15')
+        if request.form.get('data-samples-checkbox-simulated-SM-DY-MM1540'):
+            samples.append('DYmumuM15to40')
+        if request.form.get('data-samples-checkbox-simulated-SM-DY-TT0815'):
+            samples.append('DYtautauM08to15')
+        if request.form.get('data-samples-checkbox-simulated-SM-DY-TT1540'):
+            samples.append('DYtautauM15to40')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-EVB'):
+            samples.append('WenuWithB')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-EVBV'):
+            samples.append('WenuJetsBVeto')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-EVNBV'):
+            samples.append('WenuNoJetsBVeto')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-MVB'):
+            samples.append('WmunuWithB')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-MVBV'):
+            samples.append('WmunuJetsBVeto')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-MVNBV'):
+            samples.append('WmunuNoJetsBVeto')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-TVB'):
+            samples.append('WtaunuWithB')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-TVBV'):
+            samples.append('WtaunuJetsBVeto')
+        if request.form.get('data-samples-checkbox-simulated-SM-WP-TVNBV'):
+            samples.append('WtaunuNoJetsBVeto')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-400'):
+            samples.append('ZPrime400')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-500'):
+            samples.append('ZPrime500')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-750'):
+            samples.append('ZPrime750')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-1000'):
+            samples.append('ZPrime1000')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-1250'):
+            samples.append('ZPrime1250')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-1500'):
+            samples.append('ZPrime1500')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-1750'):
+            samples.append('ZPrime1750')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-2000'):
+            samples.append('ZPrime2000')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-2250'):
+            samples.append('ZPrime2250')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-2500'):
+            samples.append('ZPrime2500')
+        if request.form.get('data-samples-checkbox-simulated-BSM-ZP-3000'):
+            samples.append('ZPrime3000')
+        #### requested ####
+        doStuff(samples, eventFeatures)
+        return render_template('DataAnalysistt6.html', histograms=[histogram+'?no-cache-token={}'.format(time.time()) for histogram in glob.glob("static/histograms/*.gif")])                
+    else:
+        return render_template('DataAnalysistt6.html', histograms = [])
+
 @app.route('/DataAnalysistt5.html', methods = ['GET', 'POST'])
 def DataAnalysistt5():
     if request.method == 'POST':
