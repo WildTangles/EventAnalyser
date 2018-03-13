@@ -84,21 +84,42 @@ def doStuff(samples, eventFeatures):
 
     eventFeatures['samplesKey'] = getSamplesKey(samples)
 
-    docKey = unicodify(genKey(eventFeatures))        
-    imgRef = db.collection(u'imgStore').document(docKey)
-    if localdb.isCached(docKey):
+    # docKey = unicodify(genKey(eventFeatures))        
+    # imgRef = db.collection(u'imgStore').document(docKey)
+    # if localdb.isCached(docKey):
+    #     imgStore = imgRef.get()
+    #     for key, value in imgStore.to_dict().iteritems():
+    #         strToImg(value, 'static/histograms/{}'.format(key))        
+    # else:
+    #     startRootAnalysis(eventFeatures, samples)
+    #     while not getRootStatus():
+    #        pass            
+    #     histDict = {}
+    #     for histogram in glob.glob("static/histograms/*.gif"):                                
+    #         histDict[unicodify(os.path.basename(histogram))] = unicodify(imgToStr(histogram))                                                                
+    #     imgRef.set(histDict)
+    #     localdb.addToCache(docKey)
+    docKey = unicodify(genKey(eventFeatures))    
+    db = firestore.client()
+    try:            
+        imgRef = db.collection(u'imgStore').document(docKey)
         imgStore = imgRef.get()
         for key, value in imgStore.to_dict().iteritems():
-            strToImg(value, 'static/histograms/{}'.format(key))        
-    else:        
+            strToImg(value, 'static/histograms/{}'.format(key))   
+    except:    
         startRootAnalysis(eventFeatures, samples)
         while not getRootStatus():
            pass            
         histDict = {}
         for histogram in glob.glob("static/histograms/*.gif"):                                
-            histDict[unicodify(os.path.basename(histogram))] = unicodify(imgToStr(histogram))                                                                
-        imgRef.set(histDict)
-        localdb.addToCache(docKey)
+            histDict[unicodify(os.path.basename(histogram))] = unicodify(imgToStr(histogram))         
+        #db = firestore.client()                                                               
+        imgRef = db.collection(u'imgStore').document(docKey)
+        try:
+                imgRef.set(histDict)        
+        except:
+                #pushes to firestore fine but does not close the stream properly..
+                pass
 
 @app.route('/DataAnalysistt5.html', methods = ['GET', 'POST'])
 def DataAnalysistt5():
