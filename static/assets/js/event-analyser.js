@@ -1102,5 +1102,5 @@ GO.on('click', function(){
 });
 
 $('#carouselExampleIndicators2').carousel({
-interval: 1
+interval: 0.00000000001
 });

@@ -598,13 +598,7 @@ def DataAnalysistt1():
         return render_template('DataAnalysistt1.html', histograms=zip(histograms,histLabels))   
     else:
         return render_template('DataAnalysistt1.html', histograms=[])        
-
-@app.route('/introData', methods = ['GET', 'POST'])
-def introData():
-        if request.method == 'POST':
-            return render_template('introData.html', histograms=[placeholder+'?no-cache-token={}'.format(time.time()) for placeholder in glob.glob("static/placeholders/*.gif")])
-        else:
-            return render_template('introData.html', histograms=[placeholder+'?no-cache-token={}'.format(time.time()) for placeholder in glob.glob("static/placeholders/*.gif")])        
+        
 
 @app.route('/demo', methods = ['GET', 'POST'])
 def demo():

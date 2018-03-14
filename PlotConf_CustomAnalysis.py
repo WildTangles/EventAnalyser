@@ -90,15 +90,55 @@ config = {
     },
 
     #following added for ZPrime obviously
+    "ZPrime400": {
+        "Color": "#0000ff",
+        "Scale": 10,
+        "Contributions": ["ZPrime400"]},
+
+    "ZPrime500": {
+        "Color": "#0000ff",
+        "Scale": 10,
+        "Contributions": ["ZPrime500"]},
+
+    "ZPrime750": {
+        "Color": "#0000ff",
+        "Scale": 10,
+        "Contributions": ["ZPrime750"]},
+
     "ZPrime1000": {
         "Color": "#0000ff",
         "Scale": 10,
         "Contributions": ["ZPrime1000"]},
 
-    "ZPrime500": {
+    "ZPrime1250": {
+        "Color": "#0000ff",
+        "Scale": 10,
+        "Contributions": ["ZPrime1250"]},
+
+    "ZPrime1500": {
+        "Color": "#0000ff",
+        "Scale": 10,
+        "Contributions": ["ZPrime1500"]},
+
+    "ZPrime1750": {
         "Color": "#0099cc",
         "Scale": 10,
-        "Contributions": ["ZPrime500"]},
+        "Contributions": ["ZPrime1750"]},
+
+    "ZPrime2000": {
+        "Color" : "#05003D",
+        "Scale" : 10,
+        "Contributions" : ["ZPrime2000"]},
+
+    "ZPrime2250": {
+        "Color" : "#05003D",
+        "Scale" : 10,
+        "Contributions" : ["ZPrime2250"]},
+
+    "ZPrime2500": {
+        "Color" : "#05003D",
+        "Scale" : 10,
+        "Contributions" : ["ZPrime2500"]},
 
     "ZPrime3000": {
         "Color" : "#05003D",
@@ -120,7 +160,7 @@ config = {
         
         "Main": {
             "type"      : "Main",
-            "Paintables": ["Stack", "data", "ZPrime1000", "ZPrime500", "ZPrime3000"]
+            "Paintables": ["Stack", "data", "ZPrime400", "ZPrime500", "ZPrime750", "ZPrime1000", "ZPrime1250", "ZPrime1500", "ZPrime1750", "ZPrime2000", "ZPrime2250", "ZPrime2500", "ZPrime3000"]
         },
     }
 },

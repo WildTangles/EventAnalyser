@@ -114,83 +114,83 @@ def plot_results(samples, histograms):
     #configModuleName = args.configfile.replace("/", ".").strip(".py")
 
 ## WARNING:
-## IF samples contains nonsense that does not match anything, it returns a garbage skeleton dict.    
-    if samples:
-        configuration = copy.deepcopy(PlotConf_CustomAnalysis.config)
+## IF samples contains nonsense that does not match anything, it returns a garbage skeleton dict.  
+    if not samples:
+        #default samples
+        samples = ['data_Egamma', 'data_Muons', 'WW', 'WZ', 'ZZ', 'stop_tchan_top', 'stop_tchan_antitop', 'stop_schan', 'stop_wtchan', 'Zee', 'Zmumu', 'Ztautau', 'DYeeM08to15', 'DYeeM15to40', 'DYmumuM08to15', 'DYmumuM15to40', 'DYtautauM08to15', 'DYtautauM15to40', 'WenuWithB', 'WenuJetsBVeto', 'WenuNoJetsBVeto', 'WmunuWithB', 'WmunuJetsBVeto', 'WmunuNoJetsBVeto', 'WtaunuWithB', 'WtaunuJetsBVeto', 'WtaunuNoJetsBVeto']
 
-        keptStack = False
-        keptData = False
+    configuration = copy.deepcopy(PlotConf_CustomAnalysis.config)
 
-        Z = ["ZPrime1000", "ZPrime500", "ZPrime3000"]
-        keptZ = [False, False, False] 
+    keptStack = False
+    keptData = False
 
-        keptKeys = []        
-        tmp = copy.deepcopy(configuration["Paintables"]["Stack"]["Processes"])
-        for k, v in tmp.iteritems():
-            keepKey = False            
-            for j in v["Contributions"]:
-                if j in samples:
-                    keepKey = True
-                    keptStack = True
-                    if k not in keptKeys:
-                        keptKeys.append(k)                
-            if not keepKey:
-                del configuration["Paintables"]["Stack"]["Processes"][k]        
-        configuration["Paintables"]["Stack"]["Order"] = keptKeys    
-        
-        cleanContrib = []
-        tmp = copy.deepcopy(configuration["Paintables"]["Stack"]["Processes"])
-        for k, v in tmp.iteritems():
-            for j in v["Contributions"]:
-                if j not in samples:
-                    cleanContrib.append((k, j))
-        for i in cleanContrib:            
-            configuration["Paintables"]["Stack"]["Processes"][i[0]]["Contributions"].remove(i[1])
+    Z = ["ZPrime400", "ZPrime500", "ZPrime750", "ZPrime1000", "ZPrime1250", "ZPrime1500", "ZPrime1750", "ZPrime2000", "ZPrime2250", "ZPrime2500", "ZPrime3000"]
+    keptZ = [False]*len(Z) 
 
-        if not configuration["Paintables"]["Stack"]["Processes"].keys():
-            del configuration["Paintables"]["Stack"]
+    keptKeys = []        
+    tmp = copy.deepcopy(configuration["Paintables"]["Stack"]["Processes"])
+    for k, v in tmp.iteritems():
+        keepKey = False            
+        for j in v["Contributions"]:
+            if j in samples:
+                keepKey = True
+                keptStack = True
+                if k not in keptKeys:
+                    keptKeys.append(k)                
+        if not keepKey:
+            del configuration["Paintables"]["Stack"]["Processes"][k]        
+    configuration["Paintables"]["Stack"]["Order"] = keptKeys    
+    
+    cleanContrib = []
+    tmp = copy.deepcopy(configuration["Paintables"]["Stack"]["Processes"])
+    for k, v in tmp.iteritems():
+        for j in v["Contributions"]:
+            if j not in samples:
+                cleanContrib.append((k, j))
+    for i in cleanContrib:            
+        configuration["Paintables"]["Stack"]["Processes"][i[0]]["Contributions"].remove(i[1])
 
+    if not configuration["Paintables"]["Stack"]["Processes"].keys():
+        del configuration["Paintables"]["Stack"]
+
+    toRemove = []
+    for i in configuration["Paintables"]["data"]["Contributions"]:                            
+        if i in samples:
+            keptData = True
+        if i not in samples:
+            toRemove.append(i)
+    for i in toRemove:        
+        configuration["Paintables"]["data"]["Contributions"].remove(i)
+
+    if not configuration["Paintables"]["data"]["Contributions"]:
+        del configuration["Paintables"]["data"]
+
+
+    for idx, Z_i in enumerate(Z,0):
         toRemove = []
-        for i in configuration["Paintables"]["data"]["Contributions"]:                            
+        for i in configuration["Paintables"][Z_i]["Contributions"]:
             if i in samples:
-                keptData = True
+                keptZ[idx] = True
             if i not in samples:
                 toRemove.append(i)
-        for i in toRemove:        
-            configuration["Paintables"]["data"]["Contributions"].remove(i)
+        for i in toRemove:
+            configuration["Paintables"][Z_i]["Contributions"].remove(i)
 
-        if not configuration["Paintables"]["data"]["Contributions"]:
-            del configuration["Paintables"]["data"]
+        if not configuration["Paintables"][Z_i]["Contributions"]:
+            del configuration["Paintables"][Z_i]
 
+    if (not keptStack) or (not keptData):                    
+        configuration["Depictions"]["Order"].remove("Data/MC")
+        del configuration["Depictions"]["Definitions"]["Data/MC"]
 
-        for idx, Z_i in enumerate(Z,0):
-            toRemove = []
-            for i in configuration["Paintables"][Z_i]["Contributions"]:
-                if i in samples:
-                    keptZ[idx] = True
-                if i not in samples:
-                    toRemove.append(i)
-            for i in toRemove:
-                configuration["Paintables"][Z_i]["Contributions"].remove(i)
-
-            if not configuration["Paintables"][Z_i]["Contributions"]:
-                del configuration["Paintables"][Z_i]
-
-        if (not keptStack) or (not keptData):                    
-            configuration["Depictions"]["Order"].remove("Data/MC")
-            del configuration["Depictions"]["Definitions"]["Data/MC"]
-
-        configuration["Depictions"]["Definitions"]["Main"]["Paintables"] = []
-        if keptStack:
-            configuration["Depictions"]["Definitions"]["Main"]["Paintables"].append("Stack")
-        if keptData:
-            configuration["Depictions"]["Definitions"]["Main"]["Paintables"].append("data")       
-        for idx, keptZ_i in enumerate(keptZ,0):
-            if keptZ_i:
-                configuration["Depictions"]["Definitions"]["Main"]["Paintables"].append(Z[idx])
-
-    else:
-        configuration = PlotConf_CustomAnalysis.config
+    configuration["Depictions"]["Definitions"]["Main"]["Paintables"] = []
+    if keptStack:
+        configuration["Depictions"]["Definitions"]["Main"]["Paintables"].append("Stack")
+    if keptData:
+        configuration["Depictions"]["Definitions"]["Main"]["Paintables"].append("data")       
+    for idx, keptZ_i in enumerate(keptZ,0):
+        if keptZ_i:
+            configuration["Depictions"]["Definitions"]["Main"]["Paintables"].append(Z[idx])
     
     Database.config      = dict()
     Database.histoptions = OrderedDict()

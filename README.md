@@ -1,2 +1,2 @@
-# Analyser for CERN ATLAS Events
-# Analyser for CERN ATLAS Events
+# Event Analyser for ATLAS OpenData
+# Event Analyser for ATLAS OpenData
