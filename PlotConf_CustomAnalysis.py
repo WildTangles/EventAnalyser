@@ -91,57 +91,57 @@ config = {
 
     #following added for ZPrime obviously
     "ZPrime400": {
-        "Color": "#0000ff",
+        "Color": "#ff0000",
         "Scale": 10,
         "Contributions": ["ZPrime400"]},
 
     "ZPrime500": {
-        "Color": "#0000ff",
+        "Color": "#ff6100",
         "Scale": 10,
         "Contributions": ["ZPrime500"]},
 
     "ZPrime750": {
-        "Color": "#0000ff",
+        "Color": "#ffc700",
         "Scale": 10,
         "Contributions": ["ZPrime750"]},
 
     "ZPrime1000": {
-        "Color": "#0000ff",
+        "Color": "#c7ff00",
         "Scale": 10,
         "Contributions": ["ZPrime1000"]},
 
     "ZPrime1250": {
-        "Color": "#0000ff",
+        "Color": "#4cff00",
         "Scale": 10,
         "Contributions": ["ZPrime1250"]},
 
     "ZPrime1500": {
-        "Color": "#0000ff",
+        "Color": "#00ff3b",
         "Scale": 10,
         "Contributions": ["ZPrime1500"]},
 
     "ZPrime1750": {
-        "Color": "#0099cc",
+        "Color": "#00ffa9",
         "Scale": 10,
         "Contributions": ["ZPrime1750"]},
 
     "ZPrime2000": {
-        "Color" : "#05003D",
+        "Color" : "#00f2ff",
         "Scale" : 10,
         "Contributions" : ["ZPrime2000"]},
 
     "ZPrime2250": {
-        "Color" : "#05003D",
+        "Color" : "#007bff",
         "Scale" : 10,
         "Contributions" : ["ZPrime2250"]},
 
     "ZPrime2500": {
-        "Color" : "#05003D",
+        "Color" : "#3700ff",
         "Scale" : 10,
         "Contributions" : ["ZPrime2500"]},
 
     "ZPrime3000": {
-        "Color" : "#05003D",
+        "Color" : "#b200ff",
         "Scale" : 10,
         "Contributions" : ["ZPrime3000"]},
 
