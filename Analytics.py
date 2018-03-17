@@ -267,7 +267,11 @@ if __name__ == '__main__':
         'st_missPcb': 0,
         'percentg_val': 1.0
     }
-    # #testParams to somewhat isolate Z-Prime signal
+
+
+
+
+    # # #testParams to somewhat isolate Z-Prime signal
     # testParams = {
     #     'st_jetcb': 1,
     #     'minnjet_val': 4,
@@ -294,6 +298,36 @@ if __name__ == '__main__':
     #     'st_missPcb': 0,
     #     'percentg_val': 10.0
     # }
+
+    # descriptor definitions
+    # eventFeatures['nlep_val'] = 0           #number of leptons        
+    # eventFeatures['LepTmass_val'] = 0       #lepton min transverse mass        
+    # eventFeatures['LepTmassMax_val'] = 200  #lepton max transverse mass
+    # eventFeatures['InvariantM_val'] = 0     #lepton pair 1 invariant mass
+    # eventFeatures['InvariantM2_val'] = 0    #lepton pair 2 invariant mass
+    # eventFeatures['Range_val'] = 0          #lepton pair invariant mass uncertainty
+    # eventFeatures['leppt_val'] = 25         #lepton min transverse momentum
+    # eventFeatures['minnjet_val'] = 0        #min number of jets
+    # eventFeatures['maxnjet_val'] = 9        #max number of jets
+    # eventFeatures['btagmin_val'] = 0        #min b tag jets
+    # eventFeatures['btagmax_val'] = 9        #max b tag jets
+    # eventFeatures['minmissE_val'] = 0       #min missing transverse momentum
+    # eventFeatures['maxmissE_val'] = 200     #max missing transverse momentum
+    # eventFeatures['percentg_val'] = 0.5     #fraction of input data 
+    # eventFeatures['TwoLepcharge_val'] = 1   #lepton same/opp charge
+    # eventFeatures['TwoLepflavour_val'] = 1  #lepton same/diff flavour
+    # eventFeatures['st_lepchargecb'] = 0     #state lepton charge feature selection
+    # eventFeatures['st_lepflavourcb'] = 0    #state lepton flavour feature selection
+    # eventFeatures['st_InvMasscb'] = 0       #state of invariant mass feature selection
+    # eventFeatures['st_lepptcb'] = 0         #state of lepton min transverse momentum feature selection
+    # eventFeatures['st_btagjetcb'] = 0       #state of b tag jets feature selection
+    # eventFeatures['st_lepcb'] = 0           #state of charged leptons feature selections
+    # eventFeatures['st_jetcb'] = 0           #state of jets feature seletion
+    # eventFeatures['st_missPcb'] = 0         #state of missing transverse momentum feature selection  
+    # eventFeatures['samplesKey'] = ''        #input samples
+
+
+
 
     #samples = [ "data_Egamma", "data_Muons" ]        
     #samples = [ "WW", "ZZ" ]
