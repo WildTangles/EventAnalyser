@@ -742,30 +742,7 @@ if __name__ == '__main__':
     cred = credentials.Certificate('atlasopendata-privatekey.json')
     firebase_admin.initialize_app(cred)    
     db = firestore.client()
-    
-    #localdb = PickleDB.pickleDB('local-db.pickle')
-    #localdb.loadDB()
+    localdb = PickleDB.pickleDB('local-db.pickle')
+    localdb.loadDB()
 
-    #app.run(debug=True)
-
-    samples, eventFeatures = getDefaults()
-
-    #e.g. if i want to run the permutations for (samples: default(all), only simulated diboson (WW,WZ,ZZ)) and (data percentage: 10%, 5%) and (max number jets: 5, 6)
-    dataPercent = [0.1, 0.05]
-    maxJets = [5, 6]
-    samplesToRun = [[], ['WW','WZ','ZZ']]
-
-    import pprint
-    for i in samplesToRun:
-        for j in dataPercent:
-            for k in maxJets:                                
-                samples, eventFeatures = getDefaults()
-                if i:
-                    for l in i:
-                        samples.append(l)                        
-                eventFeatures['percentg_val'] = j
-                eventFeatures['maxnjet_val'] = k
-                print('running against samples:{}'.format(samples))
-                print('with event features\n')
-                pprint.pprint(eventFeatures)
-                doStuff(samples, eventFeatures)
+    app.run(debug=True)
