@@ -65,4 +65,10 @@ Processes = {
   # Data
   "data_Egamma"           : "Input/Data/DataEgamma*.root",
   "data_Muons"            : "Input/Data/DataMuons*.root",
+
+  #   #Higgs
+  # "ggH125_ZZ4lep"         : "Input/MC/mc_160155.ggH125_ZZ4lep.root",
+  # "VBFH125_ZZ4lep"        : "Input/MC/mc_160205.VBFH125_ZZ4lep.root",
+  # "ggH125_WW2lep"         : "Input/MC/mc_161005.ggH125_WW2lep.root",
+  # "VBFH125_WW2lep"        : "Input/MC/mc_161055.VBFH125_WW2lep.root",
 }

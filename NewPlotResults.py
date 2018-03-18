@@ -117,7 +117,7 @@ def plot_results(samples, histograms):
 ## IF samples contains nonsense that does not match anything, it returns a garbage skeleton dict.  
     if not samples:
         #default samples
-        samples = ['data_Egamma', 'data_Muons', 'WW', 'WZ', 'ZZ', 'stop_tchan_top', 'stop_tchan_antitop', 'stop_schan', 'stop_wtchan', 'Zee', 'Zmumu', 'Ztautau', 'DYeeM08to15', 'DYeeM15to40', 'DYmumuM08to15', 'DYmumuM15to40', 'DYtautauM08to15', 'DYtautauM15to40', 'WenuWithB', 'WenuJetsBVeto', 'WenuNoJetsBVeto', 'WmunuWithB', 'WmunuJetsBVeto', 'WmunuNoJetsBVeto', 'WtaunuWithB', 'WtaunuJetsBVeto', 'WtaunuNoJetsBVeto']
+        samples = ['ttbar_lep', 'ttbar_had', 'data_Egamma', 'data_Muons', 'WW', 'WZ', 'ZZ', 'stop_tchan_top', 'stop_tchan_antitop', 'stop_schan', 'stop_wtchan', 'Zee', 'Zmumu', 'Ztautau', 'DYeeM08to15', 'DYeeM15to40', 'DYmumuM08to15', 'DYmumuM15to40', 'DYtautauM08to15', 'DYtautauM15to40', 'WenuWithB', 'WenuJetsBVeto', 'WenuNoJetsBVeto', 'WmunuWithB', 'WmunuJetsBVeto', 'WmunuNoJetsBVeto', 'WtaunuWithB', 'WtaunuJetsBVeto', 'WtaunuNoJetsBVeto']
 
     configuration = copy.deepcopy(PlotConf_CustomAnalysis.config)
 

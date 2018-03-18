@@ -54,7 +54,7 @@ config = {
 "Paintables": {
     "Stack": {
         #Diboson added for ZPrime
-        "Order"     : ["WW","WZ","ZZ", "DrellYan", "W", "Z", "stop", "ttbar"],
+        "Order"     : ["WW","WZ","ZZ", "DrellYan", "W", "Z", "stop", "ttbar"], #"higgs"
         "Processes" : {
 
             "WW" : {
@@ -86,6 +86,10 @@ config = {
             "ttbar": {
                 "Color"         : "#9bc53d",
                 "Contributions" : ["ttbar_lep", "ttbar_had"]},
+
+            # "Higgs": {
+            #     "Color": "#0000ff",
+            #     "Contributions": ["ggH125_WW2lep", "VBFH125_WW2lep", "VBFH125_ZZ4lep", "ggH125_ZZ4lep"]},
         }
     },
 
@@ -162,6 +166,10 @@ config = {
             "type"      : "Main",
             "Paintables": ["Stack", "data", "ZPrime400", "ZPrime500", "ZPrime750", "ZPrime1000", "ZPrime1250", "ZPrime1500", "ZPrime1750", "ZPrime2000", "ZPrime2250", "ZPrime2500", "ZPrime3000"]
         },
+
+        # 'S/B': {
+        #     'type': 'Ratio',
+        #     'Paintables': ['Higgs', 'Stack']},
     }
 },
 }
