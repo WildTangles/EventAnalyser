@@ -10,6 +10,7 @@ import CustomConfiguration
 import NewJob
 import multiprocessing
 import shutil
+import time
 
 pool= None
 latestThread = None
@@ -201,7 +202,7 @@ def rootAnalysis(samples, **kwargs):
     for histogram in glob.glob("Output/*.gif"):
         shutil.copy(histogram, 'static/histograms')
 
-
+    time.sleep(10)
     analysisComplete = True
     
 class JobPool(multiprocessing.Process):

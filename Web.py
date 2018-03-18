@@ -40,18 +40,18 @@ def getDefaults():
     samples = []
 
     eventFeatures['nlep_val'] = 0           #number of leptons        
-    eventFeatures['LepTmass_val'] = 0       #lepton min transverse mass        
-    eventFeatures['LepTmassMax_val'] = 200  #lepton max transverse mass
-    eventFeatures['InvariantM_val'] = 0     #lepton pair 1 invariant mass
-    eventFeatures['InvariantM2_val'] = 0    #lepton pair 2 invariant mass
-    eventFeatures['Range_val'] = 0          #lepton pair invariant mass uncertainty
-    eventFeatures['leppt_val'] = 25         #lepton min transverse momentum
+    eventFeatures['LepTmass_val'] = 0.0       #lepton min transverse mass        
+    eventFeatures['LepTmassMax_val'] = 200.0  #lepton max transverse mass
+    eventFeatures['InvariantM_val'] = 0.0     #lepton pair 1 invariant mass
+    eventFeatures['InvariantM2_val'] = 0.0    #lepton pair 2 invariant mass
+    eventFeatures['Range_val'] = 0.0          #lepton pair invariant mass uncertainty
+    eventFeatures['leppt_val'] = 25.0         #lepton min transverse momentum
     eventFeatures['minnjet_val'] = 0        #min number of jets
     eventFeatures['maxnjet_val'] = 9        #max number of jets
     eventFeatures['btagmin_val'] = 0        #min b tag jets
     eventFeatures['btagmax_val'] = 9        #max b tag jets
-    eventFeatures['minmissE_val'] = 0       #min missing transverse momentum
-    eventFeatures['maxmissE_val'] = 200     #max missing transverse momentum
+    eventFeatures['minmissE_val'] = 0.0       #min missing transverse momentum
+    eventFeatures['maxmissE_val'] = 200.0     #max missing transverse momentum
     eventFeatures['percentg_val'] = 0.5     #fraction of input data 
     eventFeatures['TwoLepcharge_val'] = 1   #lepton same/opp charge
     eventFeatures['TwoLepflavour_val'] = 1  #lepton same/diff flavour
@@ -108,6 +108,7 @@ def doStuff(samples, eventFeatures):
     #     imgRef.set(histDict)
     #     localdb.addToCache(docKey)
     docKey = unicodify(genKey(eventFeatures))    
+    print(docKey)
     db = firestore.client()
     try:            
         imgRef = db.collection(u'imgStore').document(docKey)
