@@ -190,7 +190,7 @@ def rootAnalysis(samples, **kwargs):
     for process in pool:
         process.join()
         #update progress, max = 29
-
+    
     for oldHistogram in glob.glob("static/histograms/*.gif"):
         os.remove(oldHistogram)
     for oldHistogram in glob.glob("Output/*.gif"):
@@ -201,8 +201,7 @@ def rootAnalysis(samples, **kwargs):
 
     for histogram in glob.glob("Output/*.gif"):
         shutil.copy(histogram, 'static/histograms')
-
-    time.sleep(10)
+    
     analysisComplete = True
     
 class JobPool(multiprocessing.Process):

@@ -108,21 +108,26 @@ def doStuff(samples, eventFeatures):
     #     imgRef.set(histDict)
     #     localdb.addToCache(docKey)
     docKey = unicodify(genKey(eventFeatures))    
-    print(docKey)
+    #print(docKey)
     db = firestore.client()
     try:            
         imgRef = db.collection(u'imgStore').document(docKey)
         imgStore = imgRef.get()
         for key, value in imgStore.to_dict().iteritems():
             strToImg(value, 'static/histograms/{}'.format(key))   
-    except:    
+    except:
+        ###get python to garbage collect    
+        db = None
+        imgRef = None
+        imgStore = None
+        ###
         startRootAnalysis(eventFeatures, samples)
         while not getRootStatus():
-           pass            
+           pass       
         histDict = {}
         for histogram in glob.glob("static/histograms/*.gif"):                                
             histDict[unicodify(os.path.basename(histogram))] = unicodify(imgToStr(histogram))         
-        #db = firestore.client()                                                               
+        db = firestore.client()                                                               
         imgRef = db.collection(u'imgStore').document(docKey)
         try:
                 imgRef.set(histDict)        
