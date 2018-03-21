@@ -216,6 +216,10 @@ def DataAnalysistt6():
             samples.append('stop_schan')
         if request.form.get('data-samples-checkbox-simulated-SM-STQP-WT'):
             samples.append('stop_wtchan')
+        if request.form.get('data-samples-checkbox-simulated-SM-TQPP-TTBJ'):
+            samples.append('ttbar_had')
+        if request.form.get('data-samples-checkbox-simulated-SM-TQPP-TTBIX'):
+            samples.append('ttbar_lep')
         if request.form.get('data-samples-checkbox-simulated-SM-ZP-ZEE'):
             samples.append('Zee')
         if request.form.get('data-samples-checkbox-simulated-SM-ZP-ZMM'):
@@ -363,6 +367,10 @@ def DataAnalysistt5():
             samples.append('stop_schan')
         if request.form.get('data-samples-checkbox-simulated-SM-STQP-WT'):
             samples.append('stop_wtchan')
+        if request.form.get('data-samples-checkbox-simulated-SM-TQPP-TTBJ'):
+            samples.append('ttbar_had')
+        if request.form.get('data-samples-checkbox-simulated-SM-TQPP-TTBIX'):
+            samples.append('ttbar_lep')
         if request.form.get('data-samples-checkbox-simulated-SM-ZP-ZEE'):
             samples.append('Zee')
         if request.form.get('data-samples-checkbox-simulated-SM-ZP-ZMM'):
@@ -605,6 +613,37 @@ def DataAnalysistt1():
     else:
         return render_template('DataAnalysistt1.html', histograms=[])        
         
+@app.route('/Home.html')
+def home():
+    return render_template('Home.html')
+
+@app.route('/GUIathome.html')
+def GUIathome():
+    return render_template('GUIathome.html')
+
+@app.route('/Theory.html')
+def Theory():
+    return render_template('Theory.html')
+
+@app.route('/StandardModel.html')
+def StandardModel():
+    return render_template('StandardModel.html')
+
+@app.route('/SpecialRelativity.html')
+def SpecialRelativity():
+    return render_template('SpecialRelativity.html')
+
+@app.route('/InteractionForcesandFeynmanDiagrams.html')
+def InteractionForcesandFeynmanDiagrams():
+    return render_template('InteractionForcesandFeynmanDiagrams.html')
+
+@app.route('/ConservationLaws.html')
+def ConservationLaws():
+    return render_template('ConservationLaws.html')
+
+@app.route('/Experimental.html')
+def Experimental():
+    return render_template('Experimental.html')
 
 @app.route('/demo', methods = ['GET', 'POST'])
 def demo():

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtlasCarousel</title>
+<!--     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/Simple-Slider.css">
+    <link rel="stylesheet" href="assets/css/styles.css"> -->
+                    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <!-- switch this to local later -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Navigation-with-Button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Simple-Slider.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/form-validation.css') }}">  
+</head>
+
+<body style="background-image:url(&quot;../static/images/quantamag.jpg&quot;);"><nav class="navbar navbar-light navbar-expand-md" style="background-color:#ffa3a3;">
+    <div class="container-fluid"><a href="#" class="navbar-brand">ATLASOpenData</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+            id="navcol-1">
+            <ul class="nav navbar-nav">
+                <li role="presentation" class="nav-item"><a href="Home.html" class="nav-link active"><button class="btn btn-secondary" type="button" style="background-color:transparent;">Home</button></a></li>
+            </ul>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" style="background-color:transparent;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Theory
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu" >
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" style="background-color:transparent; margin:0px 8px;color:rgb(0,0,0); width:150px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Basic
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButtona">
+                            <a class="dropdown-item" href="Theory.html">Intro</a>
+                            <a class="dropdown-item" href="StandardModel.html">Standard Model</a>
+                            <a class="dropdown-item" href="SpecialRelativity.html">Special Relativity</a>
+                            <a class="dropdown-item" href="InteractionForcesandFeynmanDiagrams.html">Interaction Forces and Feynman Diagrams</a>
+                            <a class="dropdown-item" href="ConservationLaws.html">Conservation Laws</a>
+                            <a class="dropdown-item" href="Experimental.html">Experimental Ideas</a>
+                        </div>
+                    
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuA" style="background-color:transparent; margin:0px 8px; color:rgb(0,0,0); width:150px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Advanced
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuB">
+                            <a class="dropdown-item" href="Theory.html">Intro</a>
+                            <a class="dropdown-item" href="StandardModel.html">Standard Model</a>
+                            <a class="dropdown-item" href="SpecialRelativity.html">Special Relativity</a>
+                            <a class="dropdown-item" href="InteractionForcesandFeynmanDiagrams.html">Interaction Forces and Feynman Diagrams</a>
+                            <a class="dropdown-item" href="ConservationLaws.html">Conservation Laws</a>
+                            <a class="dropdown-item" href="Experimental.html">Experimental Ideas</a>
+                        </div>
+            
+            </div>
+        </div>
+            <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtona" style="background-color:transparent; margin:0px 8px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Data Analysis
+            </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtona">
+                    <a class="dropdown-item" href="DataAnalysistt1.html">Size of Dataset</a>
+                    <a class="dropdown-item" href="DataAnalysistt2.html">Leptons</a>
+                    <a class="dropdown-item" href="DataAnalysistt3.html">Jets</a>
+                    <a class="dropdown-item" href="DataAnalysistt4.html">Neutrinos</a>
+                    <a class="dropdown-item" href="DataAnalysistt5.html">Data Samples</a>
+                    <a class="dropdown-item" href="DataAnalysistt6.html">Free Roam!</a>            
+                </div>
+            </div>
+            <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtona" style="background-color:transparent; margin:0px 8px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Other
+            </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtona">
+                    <a class="dropdown-item" href="GUIathome.html">GUI at home</a>
+                    <a class="dropdown-item" href="https://www.hep.ucl.ac.uk">UCLHEP</a>
+                </div>
+            </div>
+        </div>
+        <i class="icon ion-social-twitter" style="margin:10px;"></i>
+        <i class="icon ion-social-facebook" style="margin:10px;"></i>
+        <i class="icon ion-social-youtube" style="margin:10px;"></i>
+    </div>
+</nav>
+    <div style="height:3086px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="height:3062px;padding:0px;background-color:#fff9ee;">
+                    <h1 style="margin:10px;">Experimental Ideas</h1>
+                    <p style="margin:13px;height:2922px;">To understand anything from the data at ATLAS, we’ll have to have some understanding of how the detector works and how experimental physics can collect any information from these subatomic interactions. First order of business is deconstructing
+                        the basics of how a detector works. The easiest way is to view the cross section of the detector – note the the detector is like a huge tube and we’ll show a cross-section picture of it to see it layer by layer. Each layer has
+                        a distinct function.<br><br><strong>Innermost ring – the particle trackers &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </strong>The particle tracker comes
+                        in two parts. One determines the momentum by tracing the particle’s path through the magnetic field – this is the semiconductor tracker. The other can distinguish between electrons and pions – this is the transitional radiation
+                        tracker. Note – a pion first generation quark-antiquark pair ie a first generation meson.<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The semiconductor tracker
+                        has four cylindrical layers with millions of little silicon strips. When a charged particle penetrates and travels through a strip, it ionizes this semiconductor yielding a current hence a signal. By seeing which strips have signal,
+                        the tracker can determine and trace the path of charged particle.<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The transitional radiation tracker is a series
+                        of tubes in the same axis as the tube of the detector. These tubes are filled with gas and a detector. As the particles moves through, they release something called transition radiation – it’s released when a charged particle moves
+                        across different materials. The electron has much more of this radiation hence a much bigger signal. This is used to determine whether a particle is an electron or a pion. The muon cannot be tracked by this because it does not
+                        interact adequately. A separate setup is reserved for muons specifically.<br><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Calorimeters &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </strong>Calorimeters
+                        detect dissipated energy of particles passing through them. Most of them aim to stop a particle completely as it passes through the calorimeters and these calorimeters can stop most particles – the exceptions are muons and neutrinos.<br>                        The calorimeters come in electromagnetic and hadronic types – electromagnetic ones measure the energy of electrons, photons etc as they interact with electrically charged particles while hadronic ones look at interactions with
+                        atomic nuclei. The electromagnetic calorimeter is full of liquid argon. As a photon or electron passes, it leaves a trail of ions and free electrons. This trail is measured at the edges of the calorimeter and this can be used to
+                        determine the energy.<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The hadronic calorimeter measures the energy of hadrons. It has layers of ‘scintillator
+                        sheets’ – which are materials that produce light in the presence of a charged particle. This dissipates energy away from the particle. Measuring the light is used to determine the energy of the particle. Both these examples is
+                        kind of like throwing a ball in a swimming pool and calculating the speed of the ball by measuring the ripples the ball makes in the water. Except the ball is a resultant particle from a collision and the water is either liquid
+                        argon or scintillator sheets. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong> Muon spectrometers &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong>The
+                        muon spectrometers are complicated. They use four different technologies to identify and find momenta of muons. But let’s look at a basic schematic of the muon spectrometer used in ATLAS. Each of these tubes is full of a gas. When
+                        a muon passes, it leaves a trail of charged ions. These ions go to the centre of tube where it’s detected. Just by knowing these times, it’s possible to find the path that the muon had taken when going through the muon spectrometers.
+                        This path reveals that a) it’s a muon and b) the momentum of the muon, since this is just a particle tracker specifically for Muons.<br><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Particle-identification detectors &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </strong>Now
+                        that the particles has been tracked and gone through the calorimeters, to further methods remain for detection – both of these rely on radiation emitted by charged particles and are physically complicated. When a particle moves
+                        faster than the speed of light in a medium, it cause Cherenkov radiation – analogous to a sonic boom. Physicists can use the Cherenkov radiation to find its velocity.When a fast, charged particle crosses the boundary between two
+                        electrical insulators with different resistances to electric currents, it emits transition radiation. The phenomenon is related to the energy of the particle and so can distinguish different particle types. &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>Jets &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong>A
+                        jet is a narrow cone of particles ejected in the process of the formation of hadrons. These jets are often the practically detectable thing in an experiment and are produced because of nature of gluon interaction processes a.k.a.
+                        Quantum Chromo-Dynamics (QED). In ATLAS, one of the most common interaction is between two protons. When two highly energetic (very fast) protons interact, they can exchange a gluon. This interaction causes two of the quarks to
+                        separate between from their proton. This separation, because of the nature of the strong interaction, causes there to be super high energy between them – this causes formation of quark-antiquark pairs. These pairs are the detectable
+                        signature of an interaction of this nature – and these pairs are what form jets. The details of these jets is what is used to infer information about the interaction itself – like a signature of this phenomenon.<br>&nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;B-tagged jets are experimentally important in particle physics. Jets of any quark can form. If top quark jets form,
+                        they decay almost immediately. All quarks lighter than the bottom quark often travel to detector undecayed. Bottom quarks hit a ‘sweet spot’ in that they live long enough to decay on the scale of millimetres (which is detectable)
+                        away from the collision point. How is this useful? Well after the particles are tracked, their paths can be interpolated to their origin. If the origin of two of these quarks is away from the collision point, one can say that it
+                        must have been the decay of a bottom quark. This is b-tagging and why bottom quarks are important.<br><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Neutrinos &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </strong>Neutrinos
+                        are experimentally tricky. Being extremely light, electrically neutral leptons means they hardly interact with anything. As they don’t physically and noticeably affect anything in their path, they’re extremely difficult to detect.
+                        This means their detection is usually calculated by missing energy and momentum. Using conservation laws, physicists can determine neutrino energy and momentum<br><br><br><br><br><br></p>
+                    <p></p>
+                    <p style="margin:13px;"><a class="btn btn-primary" role="button" href="ConservationLaws.html" style="background-color:transparent;color:rgb(0,0,0);">Previous</a><a class="btn btn-primary" role="button" href="Analysis.html" style="background-color:transparent;color:rgb(0,0,0);">Start Analysis</a></p>
+                </div>
+                <div class="col-md-6" style="padding:0px;background-color:#fff9ee;">
+                    <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=MzRCDLre1b4&amp;t=15s"></iframe></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="assets/js/Simple-Slider1.js"></script> -->
+                            <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/Simple-Slider1.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/event-analyser.js') }}"></script>
+</body>
+
+</html>

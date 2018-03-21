@@ -60,6 +60,12 @@ SIMSTQPTAT = $('#data-samples-checkbox-simulated-SM-STQP-TAT');
 SIMSTQPS = $('#data-samples-checkbox-simulated-SM-STQP-S');
 SIMSTQPWT = $('#data-samples-checkbox-simulated-SM-STQP-WT');
 
+SIMTQPP = $('#data-samples-checkbox-simulated-SM-TQPP-grp');
+SIMTQPPCB = $('#data-samples-checkbox-simulated-SM-TQPP');
+SIMTQPPALL1 = $('#data-samples-checkbox-simulated-SM-TQPP1');
+SIMTQPPTTBJ = $('#data-samples-checkbox-simulated-SM-TQPP-TTBJ');
+SIMTQPPTTBIX = $('#data-samples-checkbox-simulated-SM-TQPP-TTBIX');
+
 SIMSMZP = $('#data-samples-checkbox-simulated-SM-ZP-grp');
 SIMSMZPCB = $('#data-samples-checkbox-simulated-SM-ZP');
 SIMSMZPALL = $('#data-samples-checkbox-simulated-SM-ZP1');
@@ -125,6 +131,9 @@ SIMDBALL.hide();
 SIMSTQP.hide();
 SIMSTQPALL1.hide();
 SIMSTQPALL2.hide();
+
+SIMTQPP.hide();
+SIMTQPPALL1.hide();
 
 SIMSMZP.hide();
 SIMSMZPALL.hide();
@@ -423,6 +432,9 @@ SIMSTQP.hide();
 SIMSTQPALL1.hide();
 SIMSTQPALL2.hide();
 
+SIMTQPP.hide();
+SIMTQPPALL1.hide();
+
 SIMSMZP.hide();
 SIMSMZPALL.hide();
 
@@ -460,6 +472,10 @@ SIMSTQPTT.prop('checked', false);
 SIMSTQPTAT.prop('checked', false);
 SIMSTQPS.prop('checked', false);
 SIMSTQPWT.prop('checked', false);
+
+SIMTQPPCB.prop('checked', false);
+SIMTQPPTTBJ.prop('checked', false);
+SIMTQPPTTBIX.prop('checked', false);
 
 SIMSMZPCB.prop('checked', false);
 SIMSMZPEE.prop('checked', false);
@@ -514,6 +530,9 @@ SIMSTQP.hide();
 SIMSTQPALL1.hide();
 SIMSTQPALL2.hide();
 
+SIMTQPP.hide();
+SIMTQPPALL1.hide();
+
 SIMSMZP.hide();
 SIMSMZPALL.hide();
 
@@ -551,6 +570,10 @@ SIMSTQPTT.prop('checked', false);
 SIMSTQPTAT.prop('checked', false);
 SIMSTQPS.prop('checked', false);
 SIMSTQPWT.prop('checked', false);
+
+SIMTQPPCB.prop('checked', false);
+SIMTQPPTTBJ.prop('checked', false);
+SIMTQPPTTBIX.prop('checked', false);
 
 SIMSMZPCB.prop('checked', false);
 SIMSMZPEE.prop('checked', false);
@@ -638,6 +661,9 @@ SIMSTQP.hide();
 SIMSTQPALL1.hide();
 SIMSTQPALL2.hide();
 
+SIMTQPP.hide();
+SIMTQPPALL1.hide();
+
 SIMSMZP.hide();
 SIMSMZPALL.hide();
 
@@ -669,6 +695,10 @@ SIMSTQPTT.prop('checked', false);
 SIMSTQPTAT.prop('checked', false);
 SIMSTQPS.prop('checked', false);
 SIMSTQPWT.prop('checked', false);
+
+SIMTQPPCB.prop('checked', false);
+SIMTQPPTTBJ.prop('checked', false);
+SIMTQPPTTBIX.prop('checked', false);
 
 SIMSMZPCB.prop('checked', false);
 SIMSMZPEE.prop('checked', false);
@@ -719,6 +749,9 @@ SIMSTQP.hide();
 SIMSTQPALL1.hide();
 SIMSTQPALL2.hide();
 
+SIMTQPP.hide();
+SIMTQPPALL1.hide();
+
 SIMSMZP.hide();
 SIMSMZPALL.hide();
 
@@ -750,6 +783,10 @@ SIMSTQPTT.prop('checked', false);
 SIMSTQPTAT.prop('checked', false);
 SIMSTQPS.prop('checked', false);
 SIMSTQPWT.prop('checked', false);
+
+SIMTQPPCB.prop('checked', false);
+SIMTQPPTTBJ.prop('checked', false);
+SIMTQPPTTBIX.prop('checked', false);
 
 SIMSMZPCB.prop('checked', false);
 SIMSMZPEE.prop('checked', false);
@@ -879,6 +916,9 @@ SIMSTQP.show();
 SIMSTQPALL1.hide();
 SIMSTQPALL2.hide();
 
+SIMTQPP.show();
+SIMTQPPALL1.hide();
+
 SIMSMZP.show();
 SIMSMZPALL.hide();
 
@@ -901,6 +941,10 @@ SIMSTQPTT.prop('checked', false);
 SIMSTQPTAT.prop('checked', false);
 SIMSTQPS.prop('checked', false);
 SIMSTQPWT.prop('checked', false);
+
+SIMTQPPCB.prop('checked', false);
+SIMTQPPTTBJ.prop('checked', false);
+SIMTQPPTTBIX.prop('checked', false);
 
 SIMSMZPCB.prop('checked', false);
 SIMSMZPEE.prop('checked', false);
@@ -936,6 +980,9 @@ SIMSTQP.hide();
 SIMSTQPALL1.hide();
 SIMSTQPALL2.hide();
 
+SIMTQPP.hide();
+SIMTQPPALL1.hide();
+
 SIMSMZP.hide();
 SIMSMZPALL.hide();
 
@@ -958,6 +1005,10 @@ SIMSTQPTT.prop('checked', false);
 SIMSTQPTAT.prop('checked', false);
 SIMSTQPS.prop('checked', false);
 SIMSTQPWT.prop('checked', false);
+
+SIMTQPPCB.prop('checked', false);
+SIMTQPPTTBJ.prop('checked', false);
+SIMTQPPTTBIX.prop('checked', false);
 
 SIMSMZPCB.prop('checked', false);
 SIMSMZPEE.prop('checked', false);
@@ -1014,6 +1065,18 @@ SIMSTQPCB.on('click', function(){
         SIMSTQPTAT.prop('checked', false);
         SIMSTQPS.prop('checked', false);
         SIMSTQPWT.prop('checked', false);
+    }
+});
+
+SIMTQPPCB.on('click', function(){
+    if($(this).is(':checked')){
+        SIMTQPPALL1.show();
+        SIMTQPPTTBJ.prop('checked', false);
+        SIMTQPPTTBIX.prop('checked', false);
+    } else {
+        SIMTQPPALL1.hide();
+        SIMTQPPTTBJ.prop('checked', false);
+        SIMTQPPTTBIX.prop('checked', false);
     }
 });
 

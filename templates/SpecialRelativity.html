@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtlasCarousel</title>
+<!--     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/Simple-Slider.css">
+    <link rel="stylesheet" href="assets/css/styles.css"> -->
+                            <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <!-- switch this to local later -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Navigation-with-Button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Simple-Slider.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/form-validation.css') }}">
+</head>
+
+<body style="background-image:url(&quot;assets/img/quantamag.jpg&quot;);"><nav class="navbar navbar-light navbar-expand-md" style="background-color:#ffa3a3;">
+    <div class="container-fluid"><a href="#" class="navbar-brand">ATLASOpenData</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+            id="navcol-1">
+            <ul class="nav navbar-nav">
+                <li role="presentation" class="nav-item"><a href="Home.html" class="nav-link active"><button class="btn btn-secondary" type="button" style="background-color:transparent;">Home</button></a></li>
+            </ul>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" style="background-color:transparent;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Theory
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu" >
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" style="background-color:transparent; margin:0px 8px;color:rgb(0,0,0); width:150px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Basic
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButtona">
+                            <a class="dropdown-item" href="Theory.html">Intro</a>
+                            <a class="dropdown-item" href="StandardModel.html">Standard Model</a>
+                            <a class="dropdown-item" href="SpecialRelativity.html">Special Relativity</a>
+                            <a class="dropdown-item" href="InteractionForcesandFeynmanDiagrams.html">Interaction Forces and Feynman Diagrams</a>
+                            <a class="dropdown-item" href="ConservationLaws.html">Conservation Laws</a>
+                            <a class="dropdown-item" href="Experimental.html">Experimental Ideas</a>
+                        </div>
+                    
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuA" style="background-color:transparent; margin:0px 8px; color:rgb(0,0,0); width:150px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Advanced
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuB">
+                            <a class="dropdown-item" href="Theory.html">Intro</a>
+                            <a class="dropdown-item" href="StandardModel.html">Standard Model</a>
+                            <a class="dropdown-item" href="SpecialRelativity.html">Special Relativity</a>
+                            <a class="dropdown-item" href="InteractionForcesandFeynmanDiagrams.html">Interaction Forces and Feynman Diagrams</a>
+                            <a class="dropdown-item" href="ConservationLaws.html">Conservation Laws</a>
+                            <a class="dropdown-item" href="Experimental.html">Experimental Ideas</a>
+                        </div>
+            
+            </div>
+        </div>
+            <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtona" style="background-color:transparent; margin:0px 8px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Data Analysis
+            </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtona">
+                    <a class="dropdown-item" href="DataAnalysistt1.html">Size of Dataset</a>
+                    <a class="dropdown-item" href="DataAnalysistt2.html">Leptons</a>
+                    <a class="dropdown-item" href="DataAnalysistt3.html">Jets</a>
+                    <a class="dropdown-item" href="DataAnalysistt4.html">Neutrinos</a>
+                    <a class="dropdown-item" href="DataAnalysistt5.html">Data Samples</a>
+                    <a class="dropdown-item" href="DataAnalysistt6.html">Free Roam!</a>            
+                </div>
+            </div>
+            <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtona" style="background-color:transparent; margin:0px 8px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Other
+            </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButtona">
+                    <a class="dropdown-item" href="GUIathome.html">GUI at home</a>
+                    <a class="dropdown-item" href="https://www.hep.ucl.ac.uk">UCLHEP</a>
+                </div>
+            </div>
+        </div>
+        <i class="icon ion-social-twitter" style="margin:10px;"></i>
+        <i class="icon ion-social-facebook" style="margin:10px;"></i>
+        <i class="icon ion-social-youtube" style="margin:10px;"></i>
+    </div>
+</nav>
+    <div style="height:1500px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="height:1489px;padding:0px;background-color:#fff9ee;">
+                    <h1 style="margin:10px;">Special Relativity Advanced</h1>
+                    <p style="margin:13px;height:1309px;">Special relativity is an important theory in physics affecting all its branches hence we will have to understand some of its results to appreciate and understand particle physics. Specifically, we’ll try to grasp the mass-energy equivalence.
+                        Let’s start at the following equation . Here, &nbsp;is energy, is momentum, is mass and is the speed of light.<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The
+                        desired result is illustrated best if we look at a particle at rest – this yields zero momentum hence we set . The result is Einstein’s most famous equation . This equation means that mass an energy are two forms of the same thing
+                        (mass-energy equivalence).<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Let’s take the example of two cups of tea – one hot and the other cold but
+                        they both have exactly the same composition in terms of molecules and particles. The hotter one has a higher temperature, meaning its particles have more energy. This means the hotter tea will have a slightly higher mass than the
+                        cold cup of tea. However, since &nbsp;is such a huge number, the mass difference will be practically immeasurable, and we never see these effects in everyday life. However, these effects are extremely important in particle physics.<br>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;One important result is on decays. Since gaining mass would require a huge input of energy, particles never spontaneously
+                        decay from lighter particles to heavier particles. Without an energy source, such a decay would violate conservation of mass-energy (discussed more later). Hence particles can only ever decay into lighter particles. This explains
+                        why the first generation (lightest) of fermions are most common in matter around us. Any heavier fermions are free to decay into lighter ones, but the process is not spontaneously possible in reverse making light particles are
+                        more stable and hence more common.<br><br>To understand the next concept, we must first understand a frame of reference. One of the postulates of special relativity is that velocity is relative. This means that you could never
+                        conduct an experiment to determine your velocity which implies that you have no objective velocity. Hence to describe any velocity, one must arbitrarily choose a ‘frame of reference’. This frame of reference must have no acceleration
+                        (acceleration is objective). One will need to understand ‘frame of reference’ to understand invariant mass.<br>The invariant mass is the mass of a particle in its reference frame. For a system, the invariant mass is the sum of
+                        the masses in the centre of momentum ‘frame of reference’; this is the frame of reference from which the total momentum of the system is zero. It’s important to specify the frame of reference because mass is relative in special
+                        relativity.<br>Special relativity also has the important result that particles with mass cannot travel at or faster than the speed of light.<br>Special relativity also changes the values of kinetic energy and momentum of particles
+                        depending on their velocity.<br><br><br><br><br></p>
+                    <p></p>
+                    <p style="margin:13px;"><a class="btn btn-primary" role="button" href="StandardModel.html" style="background-color:transparent;color:rgb(0,0,0);">Previous</a><a class="btn btn-primary" role="button" href="InteractionForcesandFeynmanDiagrams.html" style="background-color:transparent;width:85px;color:rgb(0,0,0);">Next</a></p>
+                </div>
+                <div class="col-md-6" style="padding:0px;background-color:#fff9ee;height:1489px;"><iframe width="560" height="315" allowfullscreen="" frameborder="0" style="width:478px;"></iframe></div>
+            </div>
+        </div>
+    </div>
+<!--     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="assets/js/Simple-Slider1.js"></script> -->
+                                    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/Simple-Slider1.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/event-analyser.js') }}"></script>
+</body>
+
+</html>
